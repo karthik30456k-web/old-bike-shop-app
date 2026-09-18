@@ -9,7 +9,8 @@ export const DataTable = ({
   searchKey = '',
   emptyMessage = 'No records found',
   emptyIcon: EmptyIcon,
-  onRowClick
+  onRowClick,
+  mobileLayout = 'card'
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
 
@@ -24,6 +25,31 @@ export const DataTable = ({
     );
   });
 
+  // Identify semantic column roles for mobile card view
+  const statusCol = columns.find(
+    (c) => c.key === 'status' || c.label?.toLowerCase() === 'status' || c.key?.endsWith('_status')
+  );
+  const actionsCol = columns.find(
+    (c) =>
+      c.key === 'actions' ||
+      c.key === 'action' ||
+      c.label?.toLowerCase() === 'actions' ||
+      c.label?.toLowerCase() === 'action'
+  );
+  // Pick primary column (first non-status, non-action column if possible)
+  const primaryCol = columns.find((c) => c !== statusCol && c !== actionsCol) || columns[0] || null;
+  // Pick secondary column (next available non-status, non-action column)
+  const secondaryCol =
+    columns.find((c) => c !== statusCol && c !== actionsCol && c !== primaryCol) || null;
+
+  const bodyCols = columns.filter(
+    (c) =>
+      c !== primaryCol &&
+      c !== secondaryCol &&
+      c !== statusCol &&
+      c !== actionsCol
+  );
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', width: '100%' }}>
       {searchable && (
@@ -36,12 +62,8 @@ export const DataTable = ({
         </div>
       )}
 
-      <div style={{
-        overflowX: 'auto',
-        borderRadius: 'var(--radius-sm)',
-        border: '1px solid var(--border-color)',
-        backgroundColor: 'var(--bg-card)'
-      }}>
+      {/* Desktop Table View */}
+      <div className="data-table-desktop-wrapper">
         <table style={{
           width: '100%',
           borderCollapse: 'collapse',
@@ -116,6 +138,100 @@ export const DataTable = ({
           </tbody>
         </table>
       </div>
+
+      {/* Mobile Card Type View */}
+      {mobileLayout === 'card' && (
+        <div className="data-table-cards-wrapper">
+          {filteredData.length > 0 ? (
+            filteredData.map((row, idx) => (
+              <div
+                key={row.id || idx}
+                className="data-table-card"
+                onClick={(e) => {
+                  if (e.target.closest('button, input, select, a, textarea')) return;
+                  if (onRowClick) onRowClick(row);
+                }}
+                style={{
+                  cursor: onRowClick ? 'pointer' : 'default'
+                }}
+              >
+                {/* Card Header: Primary Identifier & Status Badge */}
+                {(primaryCol || statusCol) && (
+                  <div className="data-table-card-header">
+                    <div className="data-table-card-header-left">
+                      {primaryCol && (
+                        <div className="data-table-card-primary-val">
+                          {primaryCol.render
+                            ? primaryCol.render(row[primaryCol.key], row)
+                            : (row[primaryCol.key] ?? '—')}
+                        </div>
+                      )}
+                      {secondaryCol && (
+                        <div className="data-table-card-secondary-val">
+                          {secondaryCol.render
+                            ? secondaryCol.render(row[secondaryCol.key], row)
+                            : (row[secondaryCol.key] ?? '—')}
+                        </div>
+                      )}
+                    </div>
+                    {statusCol && (
+                      <div className="data-table-card-header-right">
+                        {statusCol.render
+                          ? statusCol.render(row[statusCol.key], row)
+                          : (row[statusCol.key] ?? '—')}
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Card Body: Structured Attribute Grid */}
+                {bodyCols.length > 0 && (
+                  <div className="data-table-card-grid">
+                    {bodyCols.map((col) => {
+                      const isFullWidth = [
+                        'feedback',
+                        'notes',
+                        'description',
+                        'address',
+                        'seller_notes',
+                        'reason'
+                      ].includes(col.key.toLowerCase());
+
+                      return (
+                        <div
+                          key={col.key}
+                          className={`data-table-card-field ${isFullWidth ? 'full-width' : ''}`}
+                        >
+                          <span className="data-table-card-label">{col.label}</span>
+                          <div className="data-table-card-value">
+                            {col.render
+                              ? col.render(row[col.key], row)
+                              : (row[col.key] ?? '—')}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+
+                {/* Card Footer: Action Buttons */}
+                {actionsCol && (
+                  <div className="data-table-card-footer">
+                    {actionsCol.render
+                      ? actionsCol.render(row[actionsCol.key], row)
+                      : row[actionsCol.key]}
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            <div className="data-table-card-empty">
+              {EmptyIcon && <EmptyIcon size={36} />}
+              <span>{emptyMessage}</span>
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
