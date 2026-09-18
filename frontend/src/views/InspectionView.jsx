@@ -151,19 +151,19 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
         alignItems: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        gap: '16px'
+        gap: '14px'
       }}>
-        <div>
-          <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+        <div style={{ flex: '1 1 240px' }}>
+          <h1 style={{ fontSize: 'clamp(1.3rem, 4vw, 1.75rem)', fontWeight: 800, color: 'var(--text-primary)' }}>
             14-Point Bike Quality Inspection
           </h1>
-          <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
+          <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', marginTop: '4px' }}>
             Comprehensive mechanical, electrical, and structural evaluation with automated showroom certificate grading.
           </p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <div style={{ minWidth: '280px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', width: '100%', maxWidth: '360px', flex: '1 1 260px' }}>
+          <div style={{ width: '100%' }}>
             <SelectDropdown
               value={selectedBikeId}
               onChange={(e) => setSelectedBikeId(e.target.value)}
@@ -177,7 +177,7 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
         </div>
       </div>
 
-      {/* Main Inspection Grid */}
+      {/* Main Inspection Grid (Single Column on mobile & mockup, 2-column on desktop) */}
       <div className="responsive-split-view">
         {/* Left Column: 14-Point Checklist */}
         <Card
@@ -298,7 +298,7 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
         </Card>
 
         {/* Right Column: Live Health Score & Certificate Preview */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="inspection-score-column" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <Card style={{ textAlign: 'center', padding: '24px' }}>
             <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
               Automated Showroom Score

@@ -9,24 +9,40 @@ import {
   Menu
 } from 'lucide-react';
 
-export const MobileNav = ({ activeTab, onSelectTab, onOpenMenu }) => {
+export const MobileNav = ({ activeTab, onSelectTab, onOpenMenu, isInsideMockup = false }) => {
   const { currentRole } = useTheme();
 
-  const navItems = [
-    { id: 'catalog', label: 'Bikes', icon: ShoppingBag },
-    { id: 'enquiries', label: 'Leads', icon: GitPullRequest, roleReq: ['admin', 'staff'] },
-    { id: 'test-rides', label: 'Rides', icon: CalendarCheck, roleReq: ['admin', 'staff'] },
-    { id: 'inventory', label: 'Stock', icon: Bike, roleReq: ['admin', 'staff'] },
-    { id: 'dashboard', label: 'Owner', icon: LayoutDashboard, roleReq: ['admin'] }
-  ];
+  // Role-aware primary tabs for bottom navigation
+  const getNavItems = () => {
+    if (currentRole === 'customer') {
+      return [
+        { id: 'catalog', label: 'Bikes', icon: ShoppingBag }
+      ];
+    }
+    if (currentRole === 'staff') {
+      return [
+        { id: 'inventory', label: 'Stock', icon: Bike },
+        { id: 'enquiries', label: 'Leads', icon: GitPullRequest },
+        { id: 'test-rides', label: 'Rides', icon: CalendarCheck },
+        { id: 'catalog', label: 'Catalog', icon: ShoppingBag }
+      ];
+    }
+    // Admin / Owner
+    return [
+      { id: 'dashboard', label: 'Overview', icon: LayoutDashboard },
+      { id: 'inventory', label: 'Stock', icon: Bike },
+      { id: 'enquiries', label: 'Leads', icon: GitPullRequest },
+      { id: 'sales', label: 'Sales', icon: ShoppingBag }
+    ];
+  };
 
-  const visibleItems = navItems.filter(item => !item.roleReq || item.roleReq.includes(currentRole)).slice(0, 4);
+  const navItems = getNavItems();
 
   return (
     <nav
-      className="mobile-bottom-nav"
+      className={`mobile-bottom-nav ${isInsideMockup ? 'inside-phone-mockup' : ''}`}
       style={{
-        position: 'fixed',
+        position: isInsideMockup ? 'absolute' : 'fixed',
         bottom: 0,
         left: 0,
         right: 0,
@@ -36,14 +52,14 @@ export const MobileNav = ({ activeTab, onSelectTab, onOpenMenu }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-around',
-        zIndex: 200,
+        zIndex: 50,
         backdropFilter: 'blur(12px)',
         WebkitBackdropFilter: 'blur(12px)',
         paddingBottom: 'max(4px, env(safe-area-inset-bottom))',
-        boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.1)'
+        boxShadow: '0 -2px 10px rgba(0, 0, 0, 0.15)'
       }}
     >
-      {visibleItems.map(item => {
+      {navItems.map(item => {
         const Icon = item.icon;
         const isActive = activeTab === item.id;
         return (
@@ -74,7 +90,7 @@ export const MobileNav = ({ activeTab, onSelectTab, onOpenMenu }) => {
         );
       })}
 
-      {/* Menu / All Pages Button */}
+      {/* Menu / Drawer Button */}
       <button
         type="button"
         onClick={onOpenMenu}
@@ -101,4 +117,3 @@ export const MobileNav = ({ activeTab, onSelectTab, onOpenMenu }) => {
     </nav>
   );
 };
-

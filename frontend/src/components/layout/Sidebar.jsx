@@ -24,7 +24,8 @@ export const Sidebar = ({
   activeTab,
   onSelectTab,
   isMobileDrawerOpen = false,
-  onCloseMobileDrawer = () => {}
+  onCloseMobileDrawer = () => {},
+  isInsideMockup = false
 }) => {
   const { currentRole, setCurrentRole } = useTheme();
   const { currentUser, logout, quickLoginAs } = useAuth();
@@ -117,54 +118,56 @@ export const Sidebar = ({
 
   return (
     <>
-      {/* 1. Desktop Static Sidebar */}
-      <aside className="desktop-sidebar">
-        <div>
-          <div style={{
-            padding: '0 10px 12px 10px',
-            fontSize: '0.72rem',
-            fontWeight: 700,
-            color: 'var(--text-muted)',
-            textTransform: 'uppercase',
-            letterSpacing: '0.06em'
-          }}>
-            {currentRole === 'admin' ? 'Owner / Management' : currentRole === 'staff' ? 'Sales Executive Console' : 'Customer Explorer'}
+      {/* 1. Desktop Static Sidebar (only shown in desktop view, hidden if inside phone frame or small screen) */}
+      {!isInsideMockup && (
+        <aside className="desktop-sidebar">
+          <div>
+            <div style={{
+              padding: '0 10px 12px 10px',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              color: 'var(--text-muted)',
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em'
+            }}>
+              {currentRole === 'admin' ? 'Owner / Management' : currentRole === 'staff' ? 'Sales Executive Console' : 'Customer Explorer'}
+            </div>
+            {renderNavList()}
           </div>
-          {renderNavList()}
-        </div>
 
-        {/* Lifecycle Flow Indicator Card */}
-        <div
-          style={{
-            marginTop: '20px',
-            padding: '14px',
-            borderRadius: 'var(--radius-sm)',
-            backgroundColor: 'var(--bg-surface)',
-            border: '1px solid var(--border-color)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '8px'
-          }}
-        >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>
-            <Sparkles size={14} />
-            <span>Full Bike Lifecycle</span>
+          {/* Lifecycle Flow Indicator Card */}
+          <div
+            style={{
+              marginTop: '20px',
+              padding: '14px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: 'var(--bg-surface)',
+              border: '1px solid var(--border-color)',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '8px'
+            }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: 700, fontSize: '0.8rem' }}>
+              <Sparkles size={14} />
+              <span>Full Bike Lifecycle</span>
+            </div>
+            <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
+              Purchase → Inspection → Refurbish → Available → Enquiry → Test Ride → Booking → Invoicing → Profit
+            </p>
           </div>
-          <p style={{ fontSize: '0.74rem', color: 'var(--text-muted)', lineHeight: '1.4' }}>
-            Purchase → Inspection → Refurbish → Available → Enquiry → Test Ride → Booking → Invoicing → Profit
-          </p>
-        </div>
-      </aside>
+        </aside>
+      )}
 
       {/* 2. Mobile Drawer Backdrop & Panel */}
       <div
-        className={`mobile-drawer-backdrop ${isMobileDrawerOpen ? 'open' : ''}`}
+        className={`mobile-drawer-backdrop ${isMobileDrawerOpen ? 'open' : ''} ${isInsideMockup ? 'mockup-drawer' : ''}`}
         onClick={onCloseMobileDrawer}
         aria-hidden="true"
       />
 
       <aside
-        className={`mobile-drawer-panel ${isMobileDrawerOpen ? 'open' : ''}`}
+        className={`mobile-drawer-panel ${isMobileDrawerOpen ? 'open' : ''} ${isInsideMockup ? 'mockup-drawer' : ''}`}
         aria-label="Mobile Navigation Menu"
       >
         {/* Drawer Header */}
@@ -320,4 +323,3 @@ export const Sidebar = ({
     </>
   );
 };
-

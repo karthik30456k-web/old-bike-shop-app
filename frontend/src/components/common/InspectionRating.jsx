@@ -9,26 +9,16 @@ export const InspectionRating = ({
   const options = [
     { id: 'Good', label: 'Good', icon: '✓', color: 'var(--color-success)', bg: 'var(--color-success-bg)', border: 'var(--color-success-border)' },
     { id: 'Average', label: 'Average', icon: '•', color: 'var(--color-warning)', bg: 'var(--color-warning-bg)', border: 'var(--color-warning-border)' },
-    { id: 'Need Repair', label: 'Need Repair', icon: '⚠', color: 'var(--color-danger)', bg: 'var(--color-danger-bg)', border: 'var(--color-danger-border)' }
+    { id: 'Need Repair', label: 'Repair', icon: '⚠', color: 'var(--color-danger)', bg: 'var(--color-danger-bg)', border: 'var(--color-danger-border)' }
   ];
 
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap',
-      padding: '10px 14px',
-      backgroundColor: 'var(--bg-surface)',
-      border: '1px solid var(--border-color)',
-      borderRadius: 'var(--radius-sm)',
-      gap: '8px'
-    }}>
-      <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', flex: '1 1 auto', minWidth: '140px' }}>
+    <div className="inspection-rating-row">
+      <span className="inspection-rating-label">
         {label}
       </span>
 
-      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+      <div className="inspection-rating-group">
         {options.map((opt) => {
           const isSelected = value === opt.id;
           return (
@@ -40,8 +30,9 @@ export const InspectionRating = ({
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
+                justifyContent: 'center',
                 gap: '4px',
-                padding: '4px 10px',
+                padding: '6px 8px',
                 fontSize: '0.78rem',
                 fontWeight: 600,
                 borderRadius: 'var(--radius-full)',
@@ -49,7 +40,9 @@ export const InspectionRating = ({
                 border: `1px solid ${isSelected ? opt.border : 'var(--border-color)'}`,
                 backgroundColor: isSelected ? opt.bg : 'transparent',
                 color: isSelected ? opt.color : 'var(--text-muted)',
-                transition: 'all var(--transition-fast)'
+                transition: 'all var(--transition-fast)',
+                flex: 1,
+                textAlign: 'center'
               }}
             >
               <span>{opt.icon}</span>

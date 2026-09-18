@@ -504,6 +504,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
             </Button>
           </>
         }
+      >
         <form className="form-grid-2">
           <FormField label="Brand" required>
             <SelectDropdown
