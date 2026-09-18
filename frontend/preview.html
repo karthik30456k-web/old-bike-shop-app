@@ -1,0 +1,1644 @@
+<html lang="en" data-theme="light" data-accent="blue">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veloce Wheels - Live Preview & Showroom ERP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+/* ==========================================================================
+   Veloce Wheels Theme Design Tokens - Ultra-Professional Corporate ERP System
+   ========================================================================== */
+:root {
+  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-full: 9999px;
+  --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-success-border: #a7f3d0;
+  --color-success-text: #065f46;
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-warning-border: #fde68a;
+  --color-warning-text: #92400e;
+  --color-danger: #dc2626;
+  --color-danger-bg: #fef2f2;
+  --color-danger-border: #fecaca;
+  --color-danger-text: #991b1b;
+  --color-info: #1d4ed8;
+  --color-info-bg: #eff6ff;
+  --color-info-border: #bfdbfe;
+  --color-info-text: #1e40af;
+  --color-purple: #7c3aed;
+  --color-purple-bg: #f5f3ff;
+  --color-purple-border: #ddd6fe;
+  --color-purple-text: #5b21b6;
+}
+
+[data-theme='light'] {
+  --bg-app: #f8fafc;
+  --bg-sidebar: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1f5f9;
+  --bg-card: #ffffff;
+  --bg-card-hover: #ffffff;
+  --bg-input: #ffffff;
+  --bg-input-focus: #ffffff;
+  --border-color: #e2e8f0;
+  --border-color-hover: #cbd5e1;
+  --border-active: var(--primary);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.07), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+  --shadow-glow: 0 0 0 3px var(--primary-light);
+}
+
+[data-theme='dark'] {
+  --bg-app: #0b0f19;
+  --bg-sidebar: #0f172a;
+  --bg-surface: #131d31;
+  --bg-surface-elevated: #1a2742;
+  --bg-card: #131d31;
+  --bg-card-hover: #17233b;
+  --bg-input: #0b111e;
+  --bg-input-focus: #0f172a;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.16);
+  --border-active: var(--primary);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --text-inverse: #0f172a;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 10px 22px rgba(0, 0, 0, 0.4);
+  --shadow-glow: 0 0 0 3px rgba(29, 78, 216, 0.25);
+  --color-success-bg: rgba(5, 150, 105, 0.14);
+  --color-success-border: rgba(5, 150, 105, 0.3);
+  --color-success-text: #34d399;
+  --color-warning-bg: rgba(217, 119, 6, 0.14);
+  --color-warning-border: rgba(217, 119, 6, 0.3);
+  --color-warning-text: #fbbf24;
+  --color-danger-bg: rgba(220, 38, 38, 0.14);
+  --color-danger-border: rgba(220, 38, 38, 0.3);
+  --color-danger-text: #f87171;
+  --color-info-bg: rgba(29, 78, 216, 0.14);
+  --color-info-border: rgba(29, 78, 216, 0.3);
+  --color-info-text: #60a5fa;
+  --color-purple-bg: rgba(124, 58, 237, 0.14);
+  --color-purple-border: rgba(124, 58, 237, 0.3);
+  --color-purple-text: #a78bfa;
+}
+
+[data-accent='cobalt'], :root {
+  --primary: #1d4ed8;
+  --primary-hover: #1e40af;
+  --primary-light: rgba(29, 78, 216, 0.1);
+  --primary-bg: rgba(29, 78, 216, 0.05);
+  --primary-border: rgba(29, 78, 216, 0.25);
+  --primary-glow: rgba(29, 78, 216, 0.15);
+  --primary-text: #ffffff;
+}
+
+[data-accent='titanium'] {
+  --primary: #334155;
+  --primary-hover: #1e293b;
+  --primary-light: rgba(51, 65, 85, 0.1);
+  --primary-bg: rgba(51, 65, 85, 0.05);
+  --primary-border: rgba(51, 65, 85, 0.25);
+  --primary-glow: rgba(51, 65, 85, 0.15);
+  --primary-text: #ffffff;
+}
+
+[data-accent='navy'] {
+  --primary: #1e3a8a;
+  --primary-hover: #172554;
+  --primary-light: rgba(30, 58, 138, 0.1);
+  --primary-bg: rgba(30, 58, 138, 0.05);
+  --primary-border: rgba(30, 58, 138, 0.25);
+  --primary-glow: rgba(30, 58, 138, 0.15);
+  --primary-text: #ffffff;
+}
+
+[data-accent='emerald'] {
+  --primary: #047857;
+  --primary-hover: #065f46;
+  --primary-light: rgba(4, 120, 87, 0.1);
+  --primary-bg: rgba(4, 120, 87, 0.05);
+  --primary-border: rgba(4, 120, 87, 0.25);
+  --primary-glow: rgba(4, 120, 87, 0.15);
+  --primary-text: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { margin: 0; padding: 0; background: var(--bg-app); color: var(--text-primary); font-family: var(--font-body); }
+button, input, select, textarea { font-family: inherit; }
+  </style>
+  <!-- React & Babel for zero-build standalone preview -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // Sample bikes with 4 standard inspection photo angles:
+    // 0: Front Look, 1: Front Tyre (Compulsory), 2: Back Tyre (Compulsory), 3: Back Look
+    const sampleBikes = [
+      {
+        id: 'bk-1', stock_id: 'VB-2023-01', brand: 'Yamaha', model: 'FZ-S V3 ABS', year: 2021, km_driven: 14500, mileage: '48 km/l', color: 'Matte Blue', purchase_price: 72000, selling_price: 88000, status: 'available', reg_number: 'TN 09 BX 4589',
+        photos: [
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80', // Front Look
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80', // Front Tyre
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80', // Back Tyre
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'  // Back Look
+        ]
+      },
+      {
+        id: 'bk-2', stock_id: 'VB-2023-02', brand: 'Royal Enfield', model: 'Classic 350', year: 2020, km_driven: 21000, mileage: '35 km/l', color: 'Stealth Black', purchase_price: 122000, selling_price: 145000, status: 'available', reg_number: 'TN 07 CW 7721',
+        photos: [
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80', // Front Look
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80', // Front Tyre
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80', // Back Tyre
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'  // Back Look
+        ]
+      },
+      {
+        id: 'bk-3', stock_id: 'VB-2023-03', brand: 'KTM', model: 'Duke 200 BS6', year: 2022, km_driven: 9800, mileage: '32 km/l', color: 'Electronic Orange', purchase_price: 140000, selling_price: 165000, status: 'available', reg_number: 'TN 10 DK 9021',
+        photos: [
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80', // Front Look
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80', // Front Tyre
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80', // Back Tyre
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'  // Back Look
+        ]
+      },
+      {
+        id: 'bk-4', stock_id: 'VB-2023-04', brand: 'Honda', model: 'Activa 6G DLX', year: 2022, km_driven: 11200, mileage: '55 km/l', color: 'Pearl Blue', purchase_price: 54000, selling_price: 68000, status: 'available', reg_number: 'TN 02 AY 3314',
+        photos: [
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'
+        ]
+      },
+      {
+        id: 'bk-6', stock_id: 'VB-2023-06', brand: 'Bajaj', model: 'Pulsar NS200', year: 2019, km_driven: 28000, mileage: '36 km/l', color: 'Pewter Grey', purchase_price: 66000, selling_price: 82000, status: 'reserved', reg_number: 'TN 22 BR 1190',
+        photos: [
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'
+        ]
+      },
+      {
+        id: 'bk-7', stock_id: 'VB-2023-07', brand: 'Suzuki', model: 'Access 125', year: 2021, km_driven: 13000, mileage: '52 km/l', color: 'Platinum Silver', purchase_price: 51000, selling_price: 64000, status: 'sold', reg_number: 'TN 05 AZ 8841',
+        photos: [
+          'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
+          'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80'
+        ]
+      }
+    ];
+
+    // Clean static card without hover movements
+    function Card3D({ children, style = {}, onClick, ...props }) {
+      return (
+        <div
+          onClick={onClick}
+          className="card-3d"
+          style={{
+            backgroundColor: 'var(--bg-card)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '14px',
+            position: 'relative',
+            overflow: 'hidden',
+            boxShadow: 'var(--shadow-sm)',
+            ...style
+          }}
+          {...props}
+        >
+          {children}
+        </div>
+      );
+    }
+
+    // Clean Photo Card without hover animation
+    function BikeCardImage({ bike, onOpen3D }) {
+      const photos = bike.photos || [bike.photo];
+      const [idx, setIdx] = useState(0);
+
+      return (
+        <div
+          style={{ position: 'relative', height: '175px', backgroundColor: '#0f172a', overflow: 'hidden' }}
+        >
+          <img
+            src={photos[idx]}
+            alt={bike.model}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover'
+            }}
+          />
+
+          {/* Photo Angle Tag Badge */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '10px',
+              left: '10px',
+              padding: '3px 8px',
+              borderRadius: '4px',
+              backgroundColor: idx === 1 || idx === 2 ? 'rgba(217, 119, 6, 0.9)' : 'rgba(15, 23, 42, 0.85)',
+              color: '#ffffff',
+              fontSize: '0.68rem',
+              fontWeight: 800,
+              border: '1px solid rgba(255,255,255,0.2)',
+              backdropFilter: 'blur(6px)',
+              zIndex: 6
+            }}
+          >
+            {idx === 0 ? '🏍️ Front' : idx === 1 ? '🛞 Front Tyre' : idx === 2 ? '🛞 Back Tyre' : idx === 3 ? '🏍️ Back Look' : `📷 Angle ${idx + 1}`}
+          </div>
+
+          {/* 360 Spin Trigger Badge */}
+          <button
+            onClick={(e) => { e.stopPropagation(); onOpen3D(bike); }}
+            style={{
+              position: 'absolute',
+              top: '10px',
+              right: '10px',
+              padding: '5px 10px',
+              borderRadius: '20px',
+              backgroundColor: 'rgba(15, 23, 42, 0.85)',
+              color: '#ffffff',
+              border: '1px solid rgba(255,255,255,0.25)',
+              fontSize: '0.72rem',
+              fontWeight: 700,
+              cursor: 'pointer',
+              zIndex: 6,
+              backdropFilter: 'blur(6px)',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}
+          >
+            🔄 360° 3D
+          </button>
+
+          {/* Dots Indicator */}
+          {photos.length > 1 && (
+            <div style={{ position: 'absolute', bottom: '6px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '4px', zIndex: 6, padding: '2px 6px', borderRadius: '10px', backgroundColor: 'rgba(0,0,0,0.5)' }}>
+              {photos.map((_, i) => (
+                <div
+                  key={i}
+                  onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+                  style={{ width: i === idx ? '12px' : '5px', height: '5px', borderRadius: '3px', backgroundColor: i === idx ? 'var(--primary)' : 'rgba(255,255,255,0.6)', cursor: 'pointer' }}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+      );
+    }
+
+    // 3D Showroom Turntable Modal
+    function TurntableModal({ bike, onClose }) {
+      if (!bike) return null;
+      const [angle, setAngle] = useState(0);
+      const [isAutoSpin, setIsAutoSpin] = useState(true);
+      const [isDragging, setIsDragging] = useState(false);
+      const [startX, setStartX] = useState(0);
+      const [startAngle, setStartAngle] = useState(0);
+      const photos = bike.photos || [bike.photo];
+
+      useEffect(() => {
+        if (!isAutoSpin) return;
+        const timer = setInterval(() => {
+          setAngle(prev => (prev + 1) % 360);
+        }, 40);
+        return () => clearInterval(timer);
+      }, [isAutoSpin]);
+
+      const activePhotoIndex = Math.floor((angle / 360) * photos.length) % photos.length;
+
+      const handleMouseDown = (e) => {
+        setIsDragging(true);
+        setStartX(e.clientX);
+        setStartAngle(angle);
+        setIsAutoSpin(false);
+      };
+
+      const handleMouseMove = (e) => {
+        if (!isDragging) return;
+        const delta = e.clientX - startX;
+        setAngle((startAngle + Math.round(delta * 0.8) + 3600) % 360);
+      };
+
+      return (
+        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(8px)', zIndex: 1000, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <div style={{ width: '100%', maxWidth: '780px', backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)' }}>
+            {/* Header */}
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}>3D Showroom Turntable: {bike.brand} {bike.model}</h3>
+                <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Interactive 360° Virtual Inspection • ⚡ {bike.mileage}</span>
+              </div>
+              <button onClick={onClose} style={{ border: 'none', background: 'transparent', fontSize: '1.4rem', cursor: 'pointer', color: 'var(--text-secondary)' }}>✕</button>
+            </div>
+
+            {/* 3D Stage */}
+            <div
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={() => setIsDragging(false)}
+              style={{ position: 'relative', height: '340px', backgroundColor: 'var(--bg-app)', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: isDragging ? 'grabbing' : 'grab', userSelect: 'none', overflow: 'hidden' }}
+            >
+              {/* Showroom Spotlight */}
+              <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '400px', height: '200px', background: 'radial-gradient(ellipse at 50% 0%, var(--primary-light) 0%, transparent 70%)', pointerEvents: 'none' }} />
+
+              {/* Rotating 3D Floor Ring */}
+              <div style={{
+                position: 'absolute',
+                bottom: '15px',
+                left: '50%',
+                transform: `translateX(-50%) rotateX(74deg) rotateZ(${angle}deg)`,
+                width: '400px',
+                height: '400px',
+                borderRadius: '50%',
+                border: '2px dashed var(--primary-border)',
+                boxShadow: '0 0 40px var(--primary-glow)',
+                pointerEvents: 'none'
+              }} />
+
+              {/* Bike Image on Turntable */}
+              <div style={{ position: 'relative', zIndex: 3, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <img
+                  src={photos[activePhotoIndex]}
+                  alt={bike.model}
+                  style={{ maxHeight: '240px', maxWidth: '500px', objectFit: 'contain', filter: 'drop-shadow(0 20px 25px rgba(0,0,0,0.35))', pointerEvents: 'none' }}
+                />
+                <div style={{ width: '300px', height: '20px', borderRadius: '50%', backgroundColor: 'rgba(0,0,0,0.3)', filter: 'blur(8px)', marginTop: '-8px' }} />
+              </div>
+
+              {/* HUD Badge with Angle Name */}
+              <div style={{ position: 'absolute', top: '14px', left: '16px', padding: '6px 12px', borderRadius: '20px', backgroundColor: 'rgba(15, 23, 42, 0.85)', color: '#ffffff', fontSize: '0.78rem', fontWeight: 700, backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span>🧭 {angle}°</span>
+                <span>•</span>
+                <span style={{ color: activePhotoIndex === 1 || activePhotoIndex === 2 ? '#f59e0b' : '#38bdf8' }}>
+                  {activePhotoIndex === 0 ? '🏍️ 1. Front Look' : activePhotoIndex === 1 ? '🛞 2. Front Tyre (Compulsory)' : activePhotoIndex === 2 ? '🛞 3. Back Tyre (Compulsory)' : activePhotoIndex === 3 ? '🏍️ 4. Back Look' : `Angle ${activePhotoIndex + 1}`}
+                </span>
+              </div>
+
+              <div style={{ position: 'absolute', top: '14px', right: '16px', padding: '6px 12px', borderRadius: '20px', backgroundColor: 'rgba(15, 23, 42, 0.75)', color: '#94a3b8', fontSize: '0.74rem' }}>
+                👆 Drag to rotate 360°
+              </div>
+            </div>
+
+            {/* Slider & Controls */}
+            <div style={{ padding: '16px 20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)' }}>0°</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="359"
+                  value={angle}
+                  onChange={(e) => { setAngle(Number(e.target.value)); setIsAutoSpin(false); }}
+                  style={{ flex: 1, accentColor: 'var(--primary)', cursor: 'pointer' }}
+                />
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-muted)' }}>360°</span>
+              </div>
+
+              {/* 4-Angle Filmstrip */}
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
+                {['1. Front Look', '2. Front Tyre ⭐', '3. Back Tyre ⭐', '4. Back Look'].map((label, pIdx) => {
+                  const pUrl = photos[pIdx];
+                  const isSel = pIdx === activePhotoIndex;
+                  return (
+                    <div
+                      key={pIdx}
+                      onClick={() => { setAngle(pIdx * 90); setIsAutoSpin(false); }}
+                      style={{
+                        position: 'relative',
+                        height: '62px',
+                        borderRadius: '6px',
+                        overflow: 'hidden',
+                        cursor: 'pointer',
+                        border: isSel ? '2px solid var(--primary)' : '1px solid var(--border-color)',
+                        opacity: isSel ? 1 : 0.75
+                      }}
+                    >
+                      {pUrl && <img src={pUrl} alt={label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />}
+                      <span style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '2px', fontSize: '0.64rem', fontWeight: 800, textAlign: 'center', backgroundColor: pIdx === 1 || pIdx === 2 ? 'rgba(217, 119, 6, 0.92)' : 'rgba(0,0,0,0.75)', color: '#ffffff' }}>
+                        {label}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <button
+                  onClick={() => setIsAutoSpin(!isAutoSpin)}
+                  style={{ padding: '6px 14px', borderRadius: '8px', border: '1px solid var(--border-color)', backgroundColor: isAutoSpin ? 'var(--primary)' : 'transparent', color: isAutoSpin ? 'var(--primary-text)' : 'var(--text-primary)', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}
+                >
+                  {isAutoSpin ? '⏸ Pause 360°' : '▶ Auto 360° Spin'}
+                </button>
+
+                <button
+                  onClick={onClose}
+                  style={{ padding: '6px 16px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: 'var(--primary-text)', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    const sampleSales = [
+      {
+        id: "sale-1",
+        invoice_number: "INV-2026-0901",
+        bike_id: "bk-7",
+        bike_title: "Suzuki Access 125 (TN 05 AZ 8841)",
+        customer_name: "Rajesh Kumar",
+        customer_phone: "+91 98408 55443",
+        customer_address: "Mylapore, Chennai, Tamil Nadu",
+        vehicle_price: 64000,
+        discount: 1000,
+        rto_transfer_charges: 1500,
+        total_amount: 64500,
+        payment_mode: "UPI + Cash",
+        sale_date: "2026-09-05",
+        delivery_status: "Delivered",
+        mileage: "52 km/l"
+      },
+      {
+        id: "sale-2",
+        invoice_number: "INV-2026-0889",
+        bike_id: "bk-1",
+        bike_title: "Yamaha FZ-S V3 ABS (TN 09 BX 4589)",
+        customer_name: "Anand Natarajan",
+        customer_phone: "+91 98403 45678",
+        customer_address: "T. Nagar, Chennai, Tamil Nadu",
+        vehicle_price: 88000,
+        discount: 2000,
+        rto_transfer_charges: 1500,
+        total_amount: 87500,
+        payment_mode: "Google Pay (UPI)",
+        sale_date: "2026-08-28",
+        delivery_status: "Delivered",
+        mileage: "48 km/l"
+      }
+    ];
+
+    // Isolated Print Engine for Thermal & A4
+    function printIsolatedDoc(elementId, options = {}) {
+      const source = document.getElementById(elementId);
+      if (!source) {
+        window.print();
+        return;
+      }
+      const { isThermal = false, thermalWidth = '80mm', title = 'Print Document' } = options;
+      
+      const oldFrame = document.getElementById('veloce-preview-print-frame');
+      if (oldFrame) oldFrame.remove();
+
+      const frame = document.createElement('iframe');
+      frame.id = 'veloce-preview-print-frame';
+      frame.style.position = 'fixed';
+      frame.style.right = '0';
+      frame.style.bottom = '0';
+      frame.style.width = '0';
+      frame.style.height = '0';
+      frame.style.border = 'none';
+      frame.style.visibility = 'hidden';
+      document.body.appendChild(frame);
+
+      const doc = frame.contentWindow.document;
+      doc.open();
+      const styles = isThermal ? `
+        @page { size: ${thermalWidth} auto; margin: 0mm; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+          width: ${thermalWidth};
+          max-width: ${thermalWidth};
+          margin: 0 auto;
+          padding: 2mm 3mm;
+          background: #ffffff !important;
+          color: #000000 !important;
+          font-family: 'Courier New', Courier, monospace;
+          font-size: 11px;
+          line-height: 1.35;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .no-print, button { display: none !important; }
+        table { width: 100%; border-collapse: collapse; }
+      ` : `
+        @page { size: A4 portrait; margin: 10mm; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          background: #ffffff !important;
+          color: #0f172a !important;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          font-size: 13px;
+          line-height: 1.45;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .no-print, button { display: none !important; }
+        table { width: 100%; border-collapse: collapse; }
+      `;
+
+      doc.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8" />
+            <title>${title}</title>
+            <style>${styles}</style>
+          </head>
+          <body>
+            ${source.innerHTML}
+          </body>
+        </html>
+      `);
+      doc.close();
+
+      setTimeout(() => {
+        try {
+          frame.contentWindow.focus();
+          frame.contentWindow.print();
+        } finally {
+          setTimeout(() => { if (frame.parentNode) frame.parentNode.removeChild(frame); }, 2000);
+        }
+      }, 250);
+    }
+
+    // 4-Inch & 3-Inch Thermal POS Bill Receipt Modal
+    function ThermalBillModal({ invoice, format = '4inch', onFormatChange, onClose }) {
+      if (!invoice) return null;
+      const [copied, setCopied] = useState(false);
+      const [rollWidth, setRollWidth] = useState('80mm'); // 80mm TVS-E RP 3230 or 100mm 4"
+      const formatRupee = (n) => '₹' + Number(n).toLocaleString('en-IN');
+
+      const handlePrint = () => {
+        if (format === '4inch') {
+          printIsolatedDoc('printable-thermal-bill', { isThermal: true, thermalWidth: rollWidth, title: 'POS Thermal Bill' });
+        } else {
+          printIsolatedDoc('printable-a4-invoice', { isThermal: false, title: `Tax-Invoice-${invoice.invoice_number}` });
+        }
+      };
+
+      const copyText = () => {
+        const text = `
+========================================
+           VELOCE WHEELS ERP
+   PRE-OWNED TWO-WHEELER SHOWROOM
+        GSTIN: 33ABCDE1234F1Z5
+  No. 42, Anna Salai, Chennai - 600002
+      Phone: +91 98401 23456
+========================================
+TAX INVOICE / POS CASH MEMO
+----------------------------------------
+Bill No : ${invoice.invoice_number}
+Date    : ${invoice.sale_date}
+Cashier : Suresh Kumar (Admin)
+----------------------------------------
+CUSTOMER: ${invoice.customer_name} (${invoice.customer_phone})
+ADDRESS : ${invoice.customer_address}
+----------------------------------------
+VEHICLE : ${invoice.bike_title}
+MILEAGE : ${invoice.mileage} (Verified)
+----------------------------------------
+1. Vehicle Purchase Price    ${formatRupee(invoice.vehicle_price)}
+2. RTO Transfer & Docs       +${formatRupee(invoice.rto_transfer_charges)}
+3. Special Discount          -${formatRupee(invoice.discount)}
+----------------------------------------
+NET PAYABLE TOTAL:           ${formatRupee(invoice.total_amount)}
+========================================
+PAID VIA: ${invoice.payment_mode} (FULL PAYMENT)
+STATUS  : DELIVERED WITH 6-MO WARRANTY
+========================================
+        `.trim();
+        navigator.clipboard.writeText(text).then(() => {
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        });
+      };
+
+      return (
+        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 1100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <div style={{ width: '100%', maxWidth: format === '4inch' ? '460px' : '720px', maxHeight: '90vh', overflowY: 'auto', backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '16px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column' }}>
+            
+            {/* Header */}
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}>
+                  {format === '4inch' ? '🧾 Thermal POS Bill (80mm TVS-E / 100mm)' : '📄 Standard A4 Tax Invoice'}
+                </h3>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>Bill #{invoice.invoice_number} • {invoice.sale_date}</span>
+              </div>
+              <button onClick={onClose} style={{ border: 'none', background: 'transparent', fontSize: '1.4rem', cursor: 'pointer', color: 'var(--text-secondary)' }}>✕</button>
+            </div>
+
+            {/* Body */}
+            <div style={{ padding: '20px' }}>
+              {/* Format Toggle */}
+              <div style={{ display: 'flex', gap: '6px', padding: '4px', backgroundColor: 'var(--bg-surface-elevated)', borderRadius: '8px', marginBottom: '18px', border: '1px solid var(--border-color)' }}>
+                <button
+                  onClick={() => onFormatChange('4inch')}
+                  style={{ flex: 1, padding: '8px', borderRadius: '6px', border: 'none', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', backgroundColor: format === '4inch' ? 'var(--primary)' : 'transparent', color: format === '4inch' ? '#ffffff' : 'var(--text-secondary)' }}
+                >
+                  🧾 Thermal Bill (80mm TVS-E / 100mm)
+                </button>
+                <button
+                  onClick={() => onFormatChange('a4')}
+                  style={{ flex: 1, padding: '8px', borderRadius: '6px', border: 'none', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', backgroundColor: format === 'a4' ? 'var(--primary)' : 'transparent', color: format === 'a4' ? '#ffffff' : 'var(--text-secondary)' }}
+                >
+                  📄 Standard A4 Invoice
+                </button>
+              </div>
+
+              {format === '4inch' ? (
+                /* THERMAL POS BILL CONTAINER */
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+                  {/* Roll Width Calibration Bar */}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', maxWidth: rollWidth === '80mm' ? '300px' : '384px', padding: '6px 10px', backgroundColor: 'var(--bg-surface-elevated)', borderRadius: '6px', border: '1px solid var(--border-color)', fontSize: '0.75rem' }}>
+                    <span style={{ fontWeight: 700, color: 'var(--text-secondary)' }}>Roll Paper:</span>
+                    <div style={{ display: 'flex', gap: '4px' }}>
+                      <button
+                        onClick={() => setRollWidth('80mm')}
+                        style={{ padding: '3px 8px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontSize: '0.72rem', fontWeight: 700, backgroundColor: rollWidth === '80mm' ? 'var(--primary)' : 'transparent', color: rollWidth === '80mm' ? '#ffffff' : 'var(--text-muted)' }}
+                      >
+                        3" (80mm TVS-E)
+                      </button>
+                      <button
+                        onClick={() => setRollWidth('100mm')}
+                        style={{ padding: '3px 8px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontSize: '0.72rem', fontWeight: 700, backgroundColor: rollWidth === '100mm' ? 'var(--primary)' : 'transparent', color: rollWidth === '100mm' ? '#ffffff' : 'var(--text-muted)' }}
+                      >
+                        4" (100mm Roll)
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Top action buttons */}
+                  <div style={{ display: 'flex', gap: '10px', width: '100%', maxWidth: rollWidth === '80mm' ? '300px' : '384px' }}>
+                    <button
+                      onClick={handlePrint}
+                      style={{ flex: 1, padding: '10px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: '#ffffff', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}
+                    >
+                      🖨️ Print Thermal Bill
+                    </button>
+                    <button
+                      onClick={copyText}
+                      style={{ flex: 1, padding: '10px', borderRadius: '8px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-surface)', color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.85rem', cursor: 'pointer' }}
+                    >
+                      {copied ? '✓ Copied!' : '📋 Copy Text'}
+                    </button>
+                  </div>
+
+                  {/* Physical paper receipt */}
+                  <div
+                    id="printable-thermal-bill"
+                    className="thermal-pos-bill"
+                    style={{
+                      width: '100%',
+                      maxWidth: rollWidth === '80mm' ? '300px' : '384px',
+                      backgroundColor: '#ffffff',
+                      color: '#111827',
+                      padding: '16px 12px',
+                      borderRadius: '4px',
+                      boxShadow: '0 8px 30px rgba(0,0,0,0.15)',
+                      fontFamily: 'Courier, "Courier New", monospace',
+                      fontSize: '12px',
+                      lineHeight: '1.38',
+                      border: '1px solid #d1d5db',
+                      position: 'relative'
+                    }}
+                  >
+                    {/* Header */}
+                    <div style={{ textAlign: 'center' }}>
+                      <div style={{ fontSize: '16px', fontWeight: 900, letterSpacing: '0.05em' }}>VELOCE WHEELS</div>
+                      <div style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' }}>Certified Used Two-Wheelers</div>
+                      <div style={{ fontSize: '10px', color: '#4b5563', marginTop: '2px' }}>GSTIN: 33ABCDE1234F1Z5 • Chennai - 600002</div>
+                      <div style={{ fontSize: '10px', fontWeight: 700 }}>Phone: +91 98401 23456 / +91 98402 34567</div>
+                    </div>
+
+                    <div style={{ borderTop: '2px solid #111827', borderBottom: '1px solid #111827', height: '3px', margin: '8px 0' }} />
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 700, fontSize: '11px' }}>
+                      <span>TAX INVOICE / CASH MEMO</span>
+                      <span style={{ border: '1px solid #111827', padding: '1px 5px', fontSize: '9px' }}>ORIGINAL</span>
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '6px 0' }} />
+
+                    <div style={{ display: 'grid', gridTemplateColumns: '85px 1fr', gap: '3px', fontSize: '11px' }}>
+                      <span style={{ color: '#4b5563' }}>Bill No:</span>
+                      <strong>{invoice.invoice_number}</strong>
+                      <span style={{ color: '#4b5563' }}>Date:</span>
+                      <span>{invoice.sale_date} 04:30 PM</span>
+                      <span style={{ color: '#4b5563' }}>Cashier:</span>
+                      <span>Suresh Kumar (Admin)</span>
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '6px 0' }} />
+
+                    <div style={{ fontSize: '11px' }}>
+                      <div style={{ fontWeight: 800, textDecoration: 'underline', marginBottom: '2px' }}>CUSTOMER PARTICULARS:</div>
+                      <div>Name  : <strong>{invoice.customer_name}</strong></div>
+                      <div>Phone : <strong>{invoice.customer_phone}</strong></div>
+                      <div>Place : {invoice.customer_address}</div>
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '6px 0' }} />
+
+                    <div style={{ fontSize: '11px' }}>
+                      <div style={{ fontWeight: 800, textDecoration: 'underline', marginBottom: '2px' }}>VEHICLE PARTICULARS:</div>
+                      <div>Model   : <strong>{invoice.bike_title}</strong></div>
+                      <div>Mileage : <strong style={{ color: '#047857' }}>⚡ {invoice.mileage} (Verified)</strong></div>
+                      <div>Status  : Fully Inspected & Road Tested</div>
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '8px 0' }} />
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontWeight: 800, fontSize: '11px' }}>
+                      <span>DESCRIPTION</span>
+                      <span>AMOUNT (₹)</span>
+                    </div>
+                    <div style={{ borderTop: '1px solid #111827', margin: '2px 0 6px 0' }} />
+
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '11px' }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <span>1. Pre-Owned Two-Wheeler</span>
+                        <span>{formatRupee(invoice.vehicle_price)}</span>
+                      </div>
+                      {Number(invoice.rto_transfer_charges || 0) > 0 && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <span>2. RTO RC Transfer & Docs</span>
+                          <span>+{formatRupee(invoice.rto_transfer_charges)}</span>
+                        </div>
+                      )}
+                      {Number(invoice.discount || 0) > 0 && (
+                        <div style={{ display: 'flex', justifyContent: 'space-between', color: '#047857' }}>
+                          <span>3. Showroom Festive Discount</span>
+                          <span>-{formatRupee(invoice.discount)}</span>
+                        </div>
+                      )}
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '8px 0 6px 0' }} />
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '14px', fontWeight: 900, padding: '4px 0' }}>
+                      <span>NET PAYABLE TOTAL:</span>
+                      <span>{formatRupee(invoice.total_amount)}</span>
+                    </div>
+
+                    <div style={{ borderTop: '2px solid #111827', borderBottom: '1px solid #111827', height: '3px', margin: '6px 0' }} />
+
+                    <div style={{ fontSize: '11px' }}>
+                      <div>Payment : <strong>{invoice.payment_mode} (PAID IN FULL)</strong></div>
+                      <div>Delivery: <strong style={{ color: '#047857' }}>✓ VEHICLE DELIVERED</strong></div>
+                    </div>
+
+                    <div style={{ borderTop: '1px dashed #6b7280', margin: '8px 0' }} />
+
+                    <div style={{ fontSize: '10px' }}>
+                      <div style={{ fontWeight: 800 }}>DOCUMENTS HANDOVER CHECKLIST:</div>
+                      <div>[✓] Original RC Smart Card</div>
+                      <div>[✓] Active Comprehensive Insurance</div>
+                      <div>[✓] Form 29 & Form 30 Signed</div>
+                      <div>[✓] 2 Sets Original Keys</div>
+                    </div>
+
+                    <div style={{
+                      marginTop: '10px',
+                      padding: '8px',
+                      backgroundColor: '#f9fafb',
+                      border: '1px dashed #9ca3af',
+                      textAlign: 'center'
+                    }}>
+                      <div style={{ display: 'flex', justifyContent: 'center', gap: '2px', height: '26px', alignItems: 'stretch', marginBottom: '4px' }}>
+                        {[2, 1, 3, 1, 2, 4, 1, 3, 2, 1, 4, 2, 1, 3, 1, 2].map((w, i) => (
+                          <div key={i} style={{ width: `${w * 2}px`, backgroundColor: '#111827' }} />
+                        ))}
+                      </div>
+                      <div style={{ fontSize: '9px', fontWeight: 700 }}>*{invoice.invoice_number}*</div>
+                      <div style={{ fontSize: '9px', color: '#6b7280' }}>SCAN TO VERIFY RC & WARRANTY</div>
+                    </div>
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '14px', fontSize: '10px' }}>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ borderBottom: '1px solid #111827', width: '100px', height: '20px' }} />
+                        <div>Customer Sign</div>
+                      </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <div style={{ borderBottom: '1px solid #111827', width: '100px', height: '20px', fontWeight: 800, fontSize: '9px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>VELOCE SEAL</div>
+                        <div>Authorized Sign</div>
+                      </div>
+                    </div>
+
+                    <div style={{ textAlign: 'center', marginTop: '12px', fontSize: '10px', color: '#4b5563' }}>
+                      <div>*** THANK YOU FOR YOUR BUSINESS! ***</div>
+                      <div style={{ fontWeight: 700 }}>HAVE A SAFE & PROSPEROUS RIDE!</div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                /* A4 Standard Invoice */
+                <div id="printable-a4-invoice" style={{ padding: '24px', backgroundColor: '#ffffff', color: '#0f172a', borderRadius: '8px', border: '1px solid #e2e8f0' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', borderBottom: '2px solid #0f172a', paddingBottom: '12px' }}>
+                    <div>
+                      <h2 style={{ fontSize: '1.4rem', fontWeight: 800, margin: 0 }}>VELOCE WHEELS</h2>
+                      <div style={{ fontSize: '0.8rem', color: '#475569' }}>Premium Certified Pre-Owned Two-Wheelers</div>
+                    </div>
+                    <div style={{ textAlign: 'right' }}>
+                      <div style={{ fontWeight: 800, fontSize: '1.1rem' }}>TAX INVOICE</div>
+                      <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--primary)' }}>{invoice.invoice_number}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '16px', fontSize: '0.85rem' }}>
+                    <div style={{ padding: '10px', backgroundColor: '#f8fafc', borderRadius: '6px' }}>
+                      <div><strong>Buyer:</strong> {invoice.customer_name}</div>
+                      <div><strong>Phone:</strong> {invoice.customer_phone}</div>
+                      <div><strong>Address:</strong> {invoice.customer_address}</div>
+                    </div>
+                    <div style={{ padding: '10px', backgroundColor: '#f8fafc', borderRadius: '6px' }}>
+                      <div><strong>Vehicle:</strong> {invoice.bike_title}</div>
+                      <div><strong>Mileage:</strong> ⚡ {invoice.mileage}</div>
+                      <div><strong>Payment:</strong> {invoice.payment_mode}</div>
+                    </div>
+                  </div>
+
+                  <div style={{ marginTop: '16px', padding: '14px', backgroundColor: '#f8fafc', borderRadius: '6px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <span style={{ fontWeight: 700 }}>Total Net Amount Paid:</span>
+                    <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--primary)' }}>{formatRupee(invoice.total_amount)}</span>
+                  </div>
+
+                  <button
+                    onClick={handlePrint}
+                    style={{ marginTop: '16px', width: '100%', padding: '10px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: '#ffffff', fontWeight: 700, cursor: 'pointer' }}
+                  >
+                    🖨️ Print Full A4 Invoice
+                  </button>
+                </div>
+              )}
+    // Add New Bike Modal with 4 Mandatory Photos Pack
+    function AddBikeModal({ isOpen, onClose, onAddBike }) {
+      if (!isOpen) return null;
+      const [brand, setBrand] = useState('Yamaha');
+      const [model, setModel] = useState('');
+      const [year, setYear] = useState(2022);
+      const [km, setKm] = useState(12000);
+      const [mileage, setMileage] = useState('48 km/l');
+      const [price, setPrice] = useState(85000);
+      const [regNo, setRegNo] = useState('TN 09 CY 1234');
+      const [photos, setPhotos] = useState(['', '', '', '']);
+
+      const slots = [
+        { label: '1. Front Look', short: 'Front', icon: '🏍️', isTyre: false, badge: 'Required', preset: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=800&q=80' },
+        { label: '2. Front Tyre', short: 'Front Tyre', icon: '🛞', isTyre: true, badge: 'Compulsory Tyre ⭐', preset: 'https://images.unsplash.com/photo-1609630875171-b1321377ee65?auto=format&fit=crop&w=800&q=80' },
+        { label: '3. Back Tyre', short: 'Back Tyre', icon: '🛞', isTyre: true, badge: 'Compulsory Tyre ⭐', preset: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80' },
+        { label: '4. Back Look', short: 'Back Look', icon: '🏍️', isTyre: false, badge: 'Required', preset: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=800&q=80' }
+      ];
+
+      const handleSetPhoto = (index, val) => {
+        const next = [...photos];
+        next[index] = val;
+        setPhotos(next);
+      };
+
+      const handleFileUpload = (index, e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (ev) => handleSetPhoto(index, ev.target.result);
+        reader.readAsDataURL(file);
+      };
+
+      const handleFillSample = () => {
+        setPhotos(slots.map(s => s.preset));
+      };
+
+      const handleSave = (e) => {
+        e.preventDefault();
+        if (!model) {
+          alert('Please enter model name.');
+          return;
+        }
+        // Validate 4 mandatory photos
+        if (!photos[0]) {
+          alert('⚠️ Photo 1 (Front Look) is required!');
+          return;
+        }
+        if (!photos[1]) {
+          alert('⚠️ Photo 2 (Front Tyre) is COMPULSORY! Tyre inspection is mandatory.');
+          return;
+        }
+        if (!photos[2]) {
+          alert('⚠️ Photo 3 (Back Tyre) is COMPULSORY! Tyre inspection is mandatory.');
+          return;
+        }
+        if (!photos[3]) {
+          alert('⚠️ Photo 4 (Back Look) is required!');
+          return;
+        }
+
+        onAddBike({
+          id: 'bk-' + Date.now(),
+          stock_id: `VB-2026-${Math.floor(10 + Math.random() * 90)}`,
+          brand,
+          model,
+          year: Number(year),
+          km_driven: Number(km),
+          mileage: mileage || '45 km/l',
+          selling_price: Number(price),
+          reg_number: regNo.toUpperCase(),
+          status: 'available',
+          photos: photos.filter(p => p && p.trim())
+        });
+        onClose();
+      };
+
+      const uploadedCount = photos.filter(p => p && p.trim()).length;
+      const isComplete = uploadedCount >= 4 && photos[1] && photos[2];
+
+      return (
+        <div style={{ position: 'fixed', inset: 0, backgroundColor: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 1200, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+          <div style={{ width: '100%', maxWidth: '680px', maxHeight: '90vh', overflowY: 'auto', backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '16px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)', display: 'flex', flexDirection: 'column' }}>
+            
+            {/* Header */}
+            <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div>
+                <h3 style={{ fontSize: '1.2rem', fontWeight: 800 }}>➕ Add New Bike to Showroom Stock</h3>
+                <span style={{ fontSize: '0.78rem', color: 'var(--text-muted)' }}>4-Angle Inspection Pack (Front, 2 Tyres, Back Look)</span>
+              </div>
+              <button onClick={onClose} style={{ border: 'none', background: 'transparent', fontSize: '1.4rem', cursor: 'pointer', color: 'var(--text-secondary)' }}>✕</button>
+            </div>
+
+            {/* Body */}
+            <form onSubmit={handleSave} style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '14px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Brand *</label>
+                  <select value={brand} onChange={e => setBrand(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }}>
+                    <option value="Yamaha">Yamaha</option>
+                    <option value="Royal Enfield">Royal Enfield</option>
+                    <option value="Honda">Honda</option>
+                    <option value="KTM">KTM</option>
+                    <option value="Bajaj">Bajaj</option>
+                    <option value="TVS">TVS</option>
+                    <option value="Suzuki">Suzuki</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Model Name *</label>
+                  <input type="text" placeholder="e.g. FZ-S V3 / Classic 350" value={model} onChange={e => setModel(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }} required />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Registration Number *</label>
+                  <input type="text" placeholder="TN 09 BX 4589" value={regNo} onChange={e => setRegNo(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }} required />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Selling Price (₹) *</label>
+                  <input type="number" placeholder="85000" value={price} onChange={e => setPrice(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }} required />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>KM Driven</label>
+                  <input type="number" value={km} onChange={e => setKm(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }} />
+                </div>
+
+                <div>
+                  <label style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>Mileage (km/l)</label>
+                  <input type="text" value={mileage} onChange={e => setMileage(e.target.value)} style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', marginTop: '4px' }} />
+                </div>
+              </div>
+
+              {/* 4-Angle Photo Inspection Pack */}
+              <div style={{ borderTop: '1px solid var(--border-color)', paddingTop: '14px', marginTop: '6px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                  <div>
+                    <span style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-primary)' }}>
+                      📸 4-Angle Mandatory Inspection Pack
+                    </span>
+                    <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', display: 'block' }}>
+                      Front Tyre and Back Tyre photos are COMPULSORY!
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                    <button
+                      type="button"
+                      onClick={handleFillSample}
+                      style={{ padding: '4px 8px', borderRadius: '4px', border: '1px solid var(--primary-border)', backgroundColor: 'var(--primary-bg)', color: 'var(--primary)', fontSize: '0.72rem', fontWeight: 700, cursor: 'pointer' }}
+                    >
+                      Fill 4 Samples
+                    </button>
+                    <span style={{ fontSize: '0.72rem', padding: '3px 8px', borderRadius: '12px', fontWeight: 800, backgroundColor: isComplete ? 'var(--color-success-bg)' : 'var(--color-warning-bg)', color: isComplete ? 'var(--color-success)' : 'var(--color-warning)' }}>
+                      {uploadedCount}/4 Uploaded
+                    </span>
+                  </div>
+                </div>
+
+                {/* 4 Photo Slots Grid */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
+                  {slots.map((s, idx) => {
+                    const pic = photos[idx];
+                    return (
+                      <div
+                        key={idx}
+                        style={{
+                          border: pic ? '2px solid var(--border-color)' : s.isTyre ? '2px dashed #f59e0b' : '2px dashed var(--border-color)',
+                          borderRadius: '8px',
+                          padding: pic ? '0' : '10px',
+                          backgroundColor: pic ? '#000' : 'var(--bg-surface-elevated)',
+                          height: '125px',
+                          position: 'relative',
+                          overflow: 'hidden',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          textAlign: 'center'
+                        }}
+                      >
+                        {pic ? (
+                          <>
+                            <img src={pic} alt={s.label} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <span style={{ position: 'absolute', top: '6px', left: '6px', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(0,0,0,0.85)', color: '#ffffff', fontSize: '0.66rem', fontWeight: 800 }}>
+                              {s.short} {s.isTyre && '⭐'}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={() => handleSetPhoto(idx, '')}
+                              style={{ position: 'absolute', bottom: '6px', right: '6px', padding: '3px 6px', borderRadius: '4px', backgroundColor: 'rgba(239, 68, 68, 0.85)', color: '#fff', border: 'none', cursor: 'pointer', fontSize: '0.68rem', fontWeight: 700 }}
+                            >
+                              Remove
+                            </button>
+                          </>
+                        ) : (
+                          <>
+                            <span style={{ fontSize: '1.2rem' }}>{s.icon}</span>
+                            <span style={{ fontSize: '0.78rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '2px' }}>{s.label}</span>
+                            <span style={{ fontSize: '0.62rem', fontWeight: 800, padding: '1px 6px', borderRadius: '10px', backgroundColor: s.isTyre ? 'rgba(245, 158, 11, 0.2)' : 'var(--primary-bg)', color: s.isTyre ? '#d97706' : 'var(--primary)', marginTop: '2px' }}>
+                              {s.badge}
+                            </span>
+                            <div style={{ display: 'flex', gap: '4px', marginTop: '6px' }}>
+                              <label style={{ padding: '3px 8px', borderRadius: '4px', backgroundColor: 'var(--primary)', color: '#ffffff', fontSize: '0.68rem', fontWeight: 700, cursor: 'pointer' }}>
+                                Upload
+                                <input type="file" accept="image/*" onChange={e => handleFileUpload(idx, e)} style={{ display: 'none' }} />
+                              </label>
+                              <button
+                                type="button"
+                                onClick={() => handleSetPhoto(idx, s.preset)}
+                                style={{ padding: '3px 6px', borderRadius: '4px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-secondary)', fontSize: '0.68rem', cursor: 'pointer' }}
+                              >
+                                Preset
+                              </button>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Submit Footer */}
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', borderTop: '1px solid var(--border-color)', paddingTop: '14px', marginTop: '6px' }}>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  style={{ padding: '8px 16px', borderRadius: '8px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-primary)', fontWeight: 600, cursor: 'pointer' }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style={{ padding: '8px 20px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: '#ffffff', fontWeight: 700, cursor: 'pointer' }}
+                >
+                  Save to Stock ✓
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    const demoUsers = [
+      { id: 'usr-1', name: 'Suresh Kumar', email: 'owner@velocebikes.com', role: 'admin', roleTitle: 'Dealership Owner / Admin', badgeIcon: '👑', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80' },
+      { id: 'usr-2', name: 'Karthik Raja', email: 'karthik@velocebikes.com', role: 'staff', roleTitle: 'Chief Mechanic & Lead Sales', badgeIcon: '💼', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80' },
+      { id: 'usr-3', name: 'Anand Natarajan', email: 'anand.customer@gmail.com', role: 'customer', roleTitle: 'Verified Buyer / Customer', badgeIcon: '🛵', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80' }
+    ];
+
+    function LoginScreen({ onLogin, accent, setAccent, theme, toggleTheme }) {
+      const [email, setEmail] = useState('owner@velocebikes.com');
+      const [password, setPassword] = useState('dealer2026');
+      const [showPw, setShowPw] = useState(false);
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const matched = demoUsers.find(u => u.email.toLowerCase() === email.trim().toLowerCase()) || demoUsers[0];
+        onLogin(matched);
+      };
+
+      return (
+        <div style={{ minHeight: '100vh', backgroundColor: 'var(--bg-app)', color: 'var(--text-primary)', display: 'flex', flexDirection: 'column' }}>
+          {/* Header */}
+          <header style={{ height: '64px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0 24px', borderBottom: '1px solid var(--border-color)' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: 'var(--primary)', color: 'var(--primary-text)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800 }}>
+                🏍️
+              </div>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 800 }}>
+                VELOCE WHEELS ERP
+              </span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              {[
+                { id: 'cobalt', color: '#1d4ed8' },
+                { id: 'titanium', color: '#334155' },
+                { id: 'navy', color: '#1e3a8a' },
+                { id: 'emerald', color: '#047857' }
+              ].map(a => (
+                <button key={a.id} onClick={() => setAccent(a.id)} style={{ width: '18px', height: '18px', borderRadius: '50%', backgroundColor: a.color, border: accent === a.id ? '2px solid #fff' : 'none', cursor: 'pointer' }} />
+              ))}
+              <button onClick={toggleTheme} style={{ padding: '4px 8px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer' }}>
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
+            </div>
+          </header>
+
+          {/* Card */}
+          <main style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
+            <div style={{ width: '100%', maxWidth: '440px', backgroundColor: 'var(--bg-card)', borderRadius: '16px', border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.1)', overflow: 'hidden' }}>
+              <div style={{ padding: '24px', backgroundColor: 'var(--bg-surface-elevated)', borderBottom: '1px solid var(--border-color)', textAlign: 'center' }}>
+                <h2 style={{ fontSize: '1.35rem', fontWeight: 800, margin: '0 0 6px 0' }}>Showroom Portal Sign In</h2>
+                <p style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', margin: 0 }}>
+                  Manage 4-angle bike inventory, 3D turntable, and POS invoicing.
+                </p>
+              </div>
+
+              <div style={{ padding: '24px' }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                  <div>
+                    <label style={{ fontSize: '0.8rem', fontWeight: 700, display: 'block', marginBottom: '4px' }}>Email Address</label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
+                      style={{ width: '100%', padding: '10px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', boxSizing: 'border-box' }}
+                    />
+                  </div>
+
+                  <div>
+                    <label style={{ fontSize: '0.8rem', fontWeight: 700, display: 'block', marginBottom: '4px' }}>Password</label>
+                    <div style={{ position: 'relative' }}>
+                      <input
+                        type={showPw ? 'text' : 'password'}
+                        required
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        style={{ width: '100%', padding: '10px 40px 10px 10px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-input)', color: 'var(--text-primary)', boxSizing: 'border-box' }}
+                      />
+                      <button
+                        type="button"
+                        onClick={() => setShowPw(!showPw)}
+                        style={{ position: 'absolute', right: '10px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer' }}
+                      >
+                        {showPw ? '🙈' : '👁️'}
+                      </button>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    style={{ marginTop: '6px', padding: '11px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: 'var(--primary-text)', fontWeight: 700, fontSize: '0.9rem', cursor: 'pointer' }}
+                  >
+                    Sign In to ERP →
+                  </button>
+                </form>
+
+                <div style={{ textAlign: 'center', margin: '20px 0 14px 0', fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 700, textTransform: 'uppercase' }}>
+                  Or 1-Click Quick Demo Sign-In
+                </div>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  {demoUsers.map(u => (
+                    <button
+                      key={u.id}
+                      type="button"
+                      onClick={() => onLogin(u)}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 12px', borderRadius: '8px', border: '1px solid var(--border-color)', backgroundColor: 'var(--bg-surface-elevated)', cursor: 'pointer', textAlign: 'left' }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <img src={u.avatar} alt={u.name} style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
+                        <div>
+                          <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-primary)' }}>{u.badgeIcon} {u.name}</div>
+                          <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)' }}>{u.roleTitle}</div>
+                        </div>
+                      </div>
+                      <span style={{ fontSize: '0.72rem', fontWeight: 700, color: 'var(--primary)' }}>Sign In →</span>
+                    </button>
+                  ))}
+                </div>
+
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <button
+                    type="button"
+                    onClick={() => onLogin(demoUsers[2])}
+                    style={{ background: 'none', border: 'none', color: 'var(--primary)', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer', textDecoration: 'underline' }}
+                  >
+                    🛵 Continue as Guest Customer (Browse Showroom)
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ padding: '10px 16px', backgroundColor: 'var(--bg-input)', borderTop: '1px solid var(--border-color)', textAlign: 'center', fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+                🔒 256-Bit Encrypted Showroom Session • GST & RTO Compliant
+              </div>
+            </div>
+          </main>
+        </div>
+      );
+    }
+
+    function App() {
+      const [currentUser, setCurrentUser] = useState(demoUsers[0]);
+      const [role, setRole] = useState('admin');
+      const [theme, setTheme] = useState('light');
+      const [accent, setAccent] = useState('cobalt');
+      const [tab, setTab] = useState('dashboard');
+      const [deviceMode, setDeviceMode] = useState('desktop');
+      const [modal3D, setModal3D] = useState(null);
+      const [selectedBill, setSelectedBill] = useState(null);
+      const [billFormat, setBillFormat] = useState('4inch');
+      const [bikesList, setBikesList] = useState(sampleBikes);
+      const [isAddBikeOpen, setIsAddBikeOpen] = useState(false);
+
+      useEffect(() => {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.setAttribute('data-accent', accent);
+      }, [theme, accent]);
+
+      const formatRupee = (n) => '₹' + Number(n).toLocaleString('en-IN');
+
+      if (!currentUser) {
+        return (
+          <LoginScreen
+            onLogin={(user) => {
+              setCurrentUser(user);
+              setRole(user.role);
+              if (user.role === 'customer') setTab('catalog');
+              else if (user.role === 'staff') setTab('inventory');
+              else setTab('dashboard');
+            }}
+            accent={accent}
+            setAccent={setAccent}
+            theme={theme}
+            toggleTheme={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
+          />
+        );
+      }
+
+      return (
+        <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+          {/* Header */}
+          <header style={{
+            height: '64px',
+            backgroundColor: 'var(--bg-sidebar)',
+            borderBottom: '1px solid var(--border-color)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 20px',
+            position: 'sticky',
+            top: 0,
+            zIndex: 100
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <div style={{ width: '36px', height: '36px', borderRadius: '8px', backgroundColor: 'var(--primary)', color: 'var(--primary-text)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 800 }}>
+                🏍️
+              </div>
+              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.15rem', fontWeight: 800 }}>
+                VELOCE WHEELS ERP
+              </span>
+            </div>
+
+            {/* Role Switcher */}
+            <div style={{ display: 'flex', gap: '4px', padding: '4px', backgroundColor: 'var(--bg-input)', borderRadius: '20px', border: '1px solid var(--border-color)' }}>
+              {['admin', 'staff', 'customer'].map(r => (
+                <button
+                  key={r}
+                  onClick={() => {
+                    setRole(r);
+                    const match = demoUsers.find(u => u.role === r) || demoUsers[0];
+                    setCurrentUser(match);
+                    if(r === 'customer') setTab('catalog');
+                    else if(r === 'staff') setTab('inventory');
+                  }}
+                  style={{
+                    padding: '4px 12px',
+                    borderRadius: '20px',
+                    border: 'none',
+                    fontWeight: 700,
+                    fontSize: '0.78rem',
+                    cursor: 'pointer',
+                    backgroundColor: role === r ? 'var(--primary)' : 'transparent',
+                    color: role === r ? 'var(--primary-text)' : 'var(--text-secondary)'
+                  }}
+                >
+                  {r === 'admin' ? '👑 Owner' : r === 'staff' ? '💼 Staff' : '🛵 Customer'}
+                </button>
+              ))}
+            </div>
+
+            {/* Controls */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              {/* Professional Palette Selector */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                {[
+                  { id: 'cobalt', color: '#1d4ed8', name: 'Executive Cobalt' },
+                  { id: 'titanium', color: '#334155', name: 'Titanium Slate' },
+                  { id: 'navy', color: '#1e3a8a', name: 'Oxford Navy' },
+                  { id: 'emerald', color: '#047857', name: 'Corporate Emerald' }
+                ].map(a => (
+                  <button
+                    key={a.id}
+                    title={a.name}
+                    onClick={() => setAccent(a.id)}
+                    style={{
+                      width: '18px',
+                      height: '18px',
+                      borderRadius: '50%',
+                      backgroundColor: a.color,
+                      border: accent === a.id ? '2px solid #ffffff' : '1px solid rgba(0,0,0,0.1)',
+                      boxShadow: accent === a.id ? '0 0 0 2px ' + a.color : 'none',
+                      cursor: 'pointer'
+                    }}
+                  />
+                ))}
+              </div>
+              <button
+                onClick={() => setDeviceMode(prev => prev === 'desktop' ? 'mobile' : 'desktop')}
+                style={{ padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer', fontSize: '0.78rem' }}
+              >
+                {deviceMode === 'desktop' ? '📱 Mobile View' : '🖥️ Desktop'}
+              </button>
+              <button
+                onClick={() => setTheme(prev => prev === 'dark' ? 'light' : 'dark')}
+                style={{ padding: '6px 10px', borderRadius: '6px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-secondary)', cursor: 'pointer' }}
+              >
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </button>
+
+              {/* User Profile Pill + Logout Button */}
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '8px', borderLeft: '1px solid var(--border-color)' }}>
+                <img src={currentUser.avatar} alt={currentUser.name} style={{ width: '28px', height: '28px', borderRadius: '50%', objectFit: 'cover' }} />
+                <span style={{ fontSize: '0.78rem', fontWeight: 700, color: 'var(--text-primary)' }}>{currentUser.name}</span>
+                <button
+                  onClick={() => setCurrentUser(null)}
+                  title="Sign out"
+                  style={{ padding: '4px 8px', borderRadius: '6px', border: '1px solid rgba(239, 68, 68, 0.4)', backgroundColor: 'rgba(239, 68, 68, 0.08)', color: '#ef4444', fontWeight: 700, fontSize: '0.74rem', cursor: 'pointer' }}
+                >
+                  🚪 Logout
+                </button>
+              </div>
+            </div>
+          </header>
+
+          {/* Body */}
+          <div style={{ display: 'flex', flex: 1 }}>
+            {deviceMode === 'desktop' && (
+              <aside style={{ width: '240px', backgroundColor: 'var(--bg-sidebar)', borderRight: '1px solid var(--border-color)', padding: '20px 10px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <button onClick={() => setTab('dashboard')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 600, cursor: 'pointer', backgroundColor: tab === 'dashboard' ? 'var(--primary)' : 'transparent', color: tab === 'dashboard' ? 'var(--primary-text)' : 'var(--text-secondary)' }}>
+                  📊 Showroom Dashboard
+                </button>
+                <button onClick={() => setTab('inventory')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 600, cursor: 'pointer', backgroundColor: tab === 'inventory' ? 'var(--primary)' : 'transparent', color: tab === 'inventory' ? 'var(--primary-text)' : 'var(--text-secondary)' }}>
+                  🏍️ Bike Inventory (3D)
+                </button>
+                <button onClick={() => setTab('inspection')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 600, cursor: 'pointer', backgroundColor: tab === 'inspection' ? 'var(--primary)' : 'transparent', color: tab === 'inspection' ? 'var(--primary-text)' : 'var(--text-secondary)' }}>
+                  🔍 14-Point Inspection
+                </button>
+                <button onClick={() => setTab('enquiries')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 600, cursor: 'pointer', backgroundColor: tab === 'enquiries' ? 'var(--primary)' : 'transparent', color: tab === 'enquiries' ? 'var(--primary-text)' : 'var(--text-secondary)' }}>
+                  📈 Leads & Pipeline
+                </button>
+                <button onClick={() => setTab('sales')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 600, cursor: 'pointer', backgroundColor: tab === 'sales' ? 'var(--primary)' : 'transparent', color: tab === 'sales' ? 'var(--primary-text)' : 'var(--text-secondary)' }}>
+                  🧾 Sales & Tax Invoices
+                </button>
+                <button onClick={() => setTab('catalog')} style={{ padding: '10px', border: 'none', borderRadius: '8px', textAlign: 'left', fontWeight: 700, cursor: 'pointer', backgroundColor: tab === 'catalog' ? 'var(--primary)' : 'var(--primary-bg)', color: tab === 'catalog' ? 'var(--primary-text)' : 'var(--primary)' }}>
+                  🌐 3D Customer Discovery
+                </button>
+              </aside>
+            )}
+
+            {/* Main Area */}
+            <main style={{ flex: 1, padding: '24px' }}>
+              {tab === 'dashboard' && (
+                <div>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 800 }}>Showroom Dashboard</h2>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '14px', marginTop: '16px' }}>
+                    <Card3D style={{ padding: '16px' }}>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>TOTAL STOCK</div>
+                      <div style={{ fontSize: '1.8rem', fontWeight: 800 }}>6 Bikes</div>
+                    </Card3D>
+                    <Card3D style={{ padding: '16px' }}>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>AVAILABLE FOR SALE</div>
+                      <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--color-success)' }}>4 Units</div>
+                    </Card3D>
+                    <Card3D style={{ padding: '16px' }}>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>TOTAL INVESTMENT</div>
+                      <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--primary)' }}>₹6,05,800</div>
+                    </Card3D>
+                    <Card3D style={{ padding: '16px' }}>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>REALIZED NET PROFIT</div>
+                      <div style={{ fontSize: '1.8rem', fontWeight: 800, color: 'var(--color-success)' }}>+₹10,900</div>
+                    </Card3D>
+                  </div>
+                </div>
+              )}
+
+              {(tab === 'inventory' || tab === 'catalog') && (
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '10px' }}>
+                    <div>
+                      <h2 style={{ fontSize: '1.5rem', fontWeight: 800 }}>
+                        {tab === 'inventory' ? 'Inventory Stock List (3D View)' : 'Customer 3D Virtual Showroom'}
+                      </h2>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        All bikes include mandatory 4-angle inspection pack (Front, Front Tyre ⭐, Back Tyre ⭐, Back Look).
+                      </p>
+                    </div>
+                    {tab === 'inventory' && (
+                      <button
+                        onClick={() => setIsAddBikeOpen(true)}
+                        style={{
+                          padding: '10px 18px',
+                          borderRadius: '8px',
+                          border: 'none',
+                          backgroundColor: 'var(--primary)',
+                          color: '#ffffff',
+                          fontWeight: 700,
+                          fontSize: '0.85rem',
+                          cursor: 'pointer',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px'
+                        }}
+                      >
+                        ➕ Add Bike (+ 4 Photos)
+                      </button>
+                    )}
+                  </div>
+
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '20px', marginTop: '16px' }}>
+                    {bikesList.map(b => (
+                      <Card3D key={b.id}>
+                        {/* 3D Image Hover Scroller */}
+                        <BikeCardImage bike={b} onOpen3D={(targetBike) => setModal3D(targetBike)} />
+
+                        <div style={{ padding: '16px' }}>
+                          <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--text-muted)' }}>{b.stock_id}</span>
+                          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: '2px 0 8px 0' }}>{b.brand} {b.model}</h3>
+                          <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', display: 'flex', gap: '6px', flexWrap: 'wrap', alignItems: 'center' }}>
+                            <span>{b.year}</span> • 
+                            <span>{b.km_driven.toLocaleString()} KM</span> • 
+                            <span style={{ color: 'var(--color-success-text)', fontWeight: 700 }}>⚡ {b.mileage}</span> • 
+                            <span>{b.reg_number}</span>
+                          </div>
+
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '14px', paddingTop: '10px', borderTop: '1px solid var(--border-color)' }}>
+                            <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--primary)' }}>{formatRupee(b.selling_price)}</span>
+                            <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
+                              <button
+                                onClick={() => setModal3D(b)}
+                                style={{ padding: '4px 10px', borderRadius: '8px', border: '1px solid var(--primary-border)', backgroundColor: 'var(--primary-bg)', color: 'var(--primary)', fontWeight: 700, fontSize: '0.75rem', cursor: 'pointer' }}
+                              >
+                                360° Spin
+                              </button>
+                              <span style={{ padding: '3px 8px', borderRadius: '12px', fontSize: '0.72rem', fontWeight: 700, backgroundColor: b.status === 'available' ? 'var(--color-success-bg)' : 'var(--color-warning-bg)', color: b.status === 'available' ? 'var(--color-success)' : 'var(--color-warning)' }}>
+                                {b.status.toUpperCase()}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </Card3D>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {tab === 'sales' && (
+                <div>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+                    <div>
+                      <h2 style={{ fontSize: '1.5rem', fontWeight: 800 }}>🧾 Sales Invoices & 4" POS Billing</h2>
+                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                        Instant 4-inch (100mm) thermal POS roll bill and tax invoice generation with live preview.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+                    {sampleSales.map(s => (
+                      <Card3D key={s.id} style={{ padding: '18px' }}>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '14px' }}>
+                          <div>
+                            <span style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--primary)' }}>{s.invoice_number}</span>
+                            <h3 style={{ fontSize: '1.15rem', fontWeight: 800, margin: '2px 0 4px 0' }}>{s.bike_title}</h3>
+                            <div style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
+                              Buyer: <strong>{s.customer_name}</strong> • Phone: {s.customer_phone} • Mode: {s.payment_mode}
+                            </div>
+                            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '2px' }}>
+                              Date: {s.sale_date} • Mileage: <span style={{ color: 'var(--color-success-text)', fontWeight: 600 }}>⚡ {s.mileage}</span>
+                            </div>
+                          </div>
+
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                            <div style={{ textAlign: 'right' }}>
+                              <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', display: 'block' }}>Paid Amount</span>
+                              <span style={{ fontSize: '1.3rem', fontWeight: 800, color: 'var(--primary)' }}>{formatRupee(s.total_amount)}</span>
+                            </div>
+
+                            <div style={{ display: 'flex', gap: '8px' }}>
+                              <button
+                                onClick={() => { setSelectedBill(s); setBillFormat('4inch'); }}
+                                style={{ padding: '8px 14px', borderRadius: '8px', border: 'none', backgroundColor: 'var(--primary)', color: '#ffffff', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '6px' }}
+                              >
+                                🧾 4" POS Bill
+                              </button>
+                              <button
+                                onClick={() => { setSelectedBill(s); setBillFormat('a4'); }}
+                                style={{ padding: '8px 14px', borderRadius: '8px', border: '1px solid var(--border-color)', backgroundColor: 'transparent', color: 'var(--text-primary)', fontWeight: 700, fontSize: '0.8rem', cursor: 'pointer' }}
+                              >
+                                📄 A4
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </Card3D>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </main>
+          </div>
+
+          {/* 3D Showroom Turntable Modal */}
+          {modal3D && <TurntableModal bike={modal3D} onClose={() => setModal3D(null)} />}
+
+          {/* 4-Inch Thermal POS Bill Modal */}
+          {selectedBill && (
+            <ThermalBillModal
+              invoice={selectedBill}
+              format={billFormat}
+              onFormatChange={setBillFormat}
+              onClose={() => setSelectedBill(null)}
+            />
+          )}
+
+          {/* Add Bike Modal with 4 Mandatory Photo Inspection Pack */}
+          <AddBikeModal
+            isOpen={isAddBikeOpen}
+            onClose={() => setIsAddBikeOpen(false)}
+            onAddBike={(newB) => setBikesList(prev => [newB, ...prev])}
+          />
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
