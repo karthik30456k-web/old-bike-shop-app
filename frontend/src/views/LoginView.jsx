@@ -74,7 +74,7 @@ export const LoginView = () => {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '18px 32px',
+        padding: '14px 18px',
         position: 'relative',
         zIndex: 10
       }}>
@@ -179,14 +179,14 @@ export const LoginView = () => {
         }}>
           {/* Card Top Banner */}
           <div style={{
-            padding: '28px 28px 20px 28px',
+            padding: '22px 20px 18px 20px',
             borderBottom: '1px solid var(--border-color)',
             backgroundColor: 'var(--bg-surface-elevated)',
             textAlign: 'center'
           }}>
             <h2 style={{
               fontFamily: 'var(--font-heading)',
-              fontSize: '1.45rem',
+              fontSize: '1.35rem',
               fontWeight: 800,
               margin: '0 0 6px 0',
               color: 'var(--text-primary)'
@@ -204,7 +204,7 @@ export const LoginView = () => {
           </div>
 
           {/* Form Content */}
-          <div style={{ padding: '28px' }}>
+          <div style={{ padding: '20px 18px' }}>
             {errorMessage && (
               <div style={{
                 padding: '10px 14px',

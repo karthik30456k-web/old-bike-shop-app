@@ -158,7 +158,7 @@ export const EnquiryPipelineView = ({ onNavigate }) => {
       {/* Interactive Kanban Columns */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
         gap: '16px',
         alignItems: 'start'
       }}>
@@ -353,7 +353,7 @@ export const EnquiryPipelineView = ({ onNavigate }) => {
         }
       >
         <form style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Customer Name" required>
               <TextInput
                 placeholder="e.g. Dinesh Kumar"
@@ -371,7 +371,7 @@ export const EnquiryPipelineView = ({ onNavigate }) => {
             </FormField>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Interested Bike">
               <SelectDropdown
                 value={selectedBikeId}
@@ -393,7 +393,7 @@ export const EnquiryPipelineView = ({ onNavigate }) => {
             </FormField>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Lead Source">
               <SelectDropdown
                 value={source}

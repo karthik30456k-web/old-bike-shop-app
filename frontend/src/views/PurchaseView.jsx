@@ -299,7 +299,7 @@ export const PurchaseView = ({ onNavigate, onIntakeComplete }) => {
             <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <User size={16} /> 1. Seller Information (Owner Details)
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Seller Full Name" required>
                 <TextInput
                   placeholder="e.g. Vigneshwaran S"
@@ -341,7 +341,7 @@ export const PurchaseView = ({ onNavigate, onIntakeComplete }) => {
             <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Bike size={16} /> 2. Vehicle Details
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Brand" required>
                 <SelectDropdown
                   value={brand}
@@ -416,7 +416,7 @@ export const PurchaseView = ({ onNavigate, onIntakeComplete }) => {
             <h4 style={{ fontSize: '0.95rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <DollarSign size={16} /> 3. Purchase Price & Payment Mode
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Purchase Price (Paid to Seller)" required helperText="Cost basis for profit calculations">
                 <NumberInput
                   prefix="₹"

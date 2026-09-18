@@ -258,7 +258,7 @@ export const BikePhotoUploader = ({
       {/* 4 Mandatory Slots Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 180px), 1fr))',
         gap: '12px'
       }}>
         {MANDATORY_PHOTO_SLOTS.map((slot) => {
@@ -523,7 +523,7 @@ export const BikePhotoUploader = ({
         {photosList.length > 4 && (
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
             gap: '10px'
           }}>
             {photosList.slice(4).map((extraPhoto, i) => {

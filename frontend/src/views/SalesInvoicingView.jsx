@@ -286,7 +286,7 @@ export const SalesInvoicingView = ({ incomingBooking }) => {
             <h4 style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '10px' }}>
               1. Buyer Information
             </h4>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Buyer Full Name" required>
                 <TextInput
                   placeholder="e.g. Rajesh Kumar"
@@ -303,7 +303,7 @@ export const SalesInvoicingView = ({ incomingBooking }) => {
                 />
               </FormField>
 
-              <div style={{ gridColumn: 'span 2' }}>
+              <div style={{ gridColumn: '1 / -1' }}>
                 <FormField label="Buyer Address (For RTO RC Transfer)">
                   <TextInput
                     placeholder="e.g. No 15, Mylapore, Chennai - 600004"
@@ -332,7 +332,7 @@ export const SalesInvoicingView = ({ incomingBooking }) => {
               />
             </FormField>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Base Vehicle Price (₹)" required>
                 <NumberInput
                   prefix="₹"
@@ -530,7 +530,7 @@ export const SalesInvoicingView = ({ incomingBooking }) => {
                 </div>
 
                 {/* Customer & Vehicle Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', fontSize: '0.85rem' }}>
+                <div className="form-grid-2" style={{ gap: '12px', fontSize: '0.85rem' }}>
                   <div style={{ padding: '10px', backgroundColor: '#f8fafc', borderRadius: '6px' }}>
                     <div style={{ fontWeight: 700, color: '#0f172a', marginBottom: '4px' }}>BUYER DETAILS</div>
                     <div><strong>Name:</strong> {selectedInvoiceForPrint.customer_name}</div>
@@ -548,38 +548,40 @@ export const SalesInvoicingView = ({ incomingBooking }) => {
                 </div>
 
                 {/* Financial Line Items */}
-                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', marginTop: '8px' }}>
-                  <thead>
-                    <tr style={{ borderBottom: '1px solid #cbd5e1', backgroundColor: '#f1f5f9', textAlign: 'left' }}>
-                      <th style={{ padding: '8px' }}>Item Description</th>
-                      <th style={{ padding: '8px', textAlign: 'right' }}>Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-                      <td style={{ padding: '8px' }}>Pre-Owned Two-Wheeler ({selectedInvoiceForPrint.bike_title})</td>
-                      <td style={{ padding: '8px', textAlign: 'right', fontWeight: 600 }}>{formatRupee(selectedInvoiceForPrint.vehicle_price)}</td>
-                    </tr>
-                    {Number(selectedInvoiceForPrint.discount || 0) > 0 && (
-                      <tr style={{ borderBottom: '1px solid #e2e8f0', color: '#10b981' }}>
-                        <td style={{ padding: '8px' }}>Special Showroom Discount</td>
-                        <td style={{ padding: '8px', textAlign: 'right' }}>-{formatRupee(selectedInvoiceForPrint.discount)}</td>
+                <div className="table-container-responsive">
+                  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem', marginTop: '8px' }}>
+                    <thead>
+                      <tr style={{ borderBottom: '1px solid #cbd5e1', backgroundColor: '#f1f5f9', textAlign: 'left' }}>
+                        <th style={{ padding: '8px' }}>Item Description</th>
+                        <th style={{ padding: '8px', textAlign: 'right' }}>Amount</th>
                       </tr>
-                    )}
-                    {Number(selectedInvoiceForPrint.rto_transfer_charges || 0) > 0 && (
+                    </thead>
+                    <tbody>
                       <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
-                        <td style={{ padding: '8px' }}>RTO RC Ownership Transfer & Documentation</td>
-                        <td style={{ padding: '8px', textAlign: 'right' }}>+{formatRupee(selectedInvoiceForPrint.rto_transfer_charges)}</td>
+                        <td style={{ padding: '8px' }}>Pre-Owned Two-Wheeler ({selectedInvoiceForPrint.bike_title})</td>
+                        <td style={{ padding: '8px', textAlign: 'right', fontWeight: 600 }}>{formatRupee(selectedInvoiceForPrint.vehicle_price)}</td>
                       </tr>
-                    )}
-                    <tr style={{ fontWeight: 800, fontSize: '1.05rem', backgroundColor: '#f8fafc' }}>
-                      <td style={{ padding: '12px 8px' }}>Total Amount Paid (Full Settlement)</td>
-                      <td style={{ padding: '12px 8px', textAlign: 'right', color: '#0f172a' }}>
-                        {formatRupee(selectedInvoiceForPrint.total_amount)}
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                      {Number(selectedInvoiceForPrint.discount || 0) > 0 && (
+                        <tr style={{ borderBottom: '1px solid #e2e8f0', color: '#10b981' }}>
+                          <td style={{ padding: '8px' }}>Special Showroom Discount</td>
+                          <td style={{ padding: '8px', textAlign: 'right' }}>-{formatRupee(selectedInvoiceForPrint.discount)}</td>
+                        </tr>
+                      )}
+                      {Number(selectedInvoiceForPrint.rto_transfer_charges || 0) > 0 && (
+                        <tr style={{ borderBottom: '1px solid #e2e8f0' }}>
+                          <td style={{ padding: '8px' }}>RTO RC Ownership Transfer & Documentation</td>
+                          <td style={{ padding: '8px', textAlign: 'right' }}>+{formatRupee(selectedInvoiceForPrint.rto_transfer_charges)}</td>
+                        </tr>
+                      )}
+                      <tr style={{ fontWeight: 800, fontSize: '1.05rem', backgroundColor: '#f8fafc' }}>
+                        <td style={{ padding: '12px 8px' }}>Total Amount Paid (Full Settlement)</td>
+                        <td style={{ padding: '12px 8px', textAlign: 'right', color: '#0f172a' }}>
+                          {formatRupee(selectedInvoiceForPrint.total_amount)}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
                 {/* Handover & Stamp */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', paddingTop: '20px', fontSize: '0.8rem' }}>

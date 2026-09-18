@@ -238,7 +238,7 @@ export const BookingsView = ({ onNavigate, onProceedToSale }) => {
         }
       >
         <form style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Customer Name" required>
               <TextInput
                 placeholder="e.g. Murugan Selvam"
@@ -267,7 +267,7 @@ export const BookingsView = ({ onNavigate, onProceedToSale }) => {
             />
           </FormField>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Agreed Selling Price" required>
               <NumberInput
                 prefix="₹"
@@ -285,7 +285,7 @@ export const BookingsView = ({ onNavigate, onProceedToSale }) => {
             </FormField>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Expected Delivery Date">
               <DateInput
                 value={expectedDelivery}

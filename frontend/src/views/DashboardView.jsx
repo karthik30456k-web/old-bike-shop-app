@@ -82,7 +82,7 @@ export const DashboardView = ({ onNavigate }) => {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <Button
             variant="outline"
             icon={PlusCircle}
@@ -103,8 +103,8 @@ export const DashboardView = ({ onNavigate }) => {
       {/* Primary KPI Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-        gap: '16px'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+        gap: '14px'
       }}>
         <MetricCard
           label="Total Bikes in Stock"
@@ -143,7 +143,7 @@ export const DashboardView = ({ onNavigate }) => {
       {/* Financial & Profit Tracking Overview */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
         gap: '16px'
       }}>
         <Card

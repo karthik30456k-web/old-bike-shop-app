@@ -216,9 +216,9 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
             ]}
           />
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap', width: '100%', maxWidth: '640px' }}>
             {/* Brand Dropdown */}
-            <div style={{ width: '170px' }}>
+            <div style={{ flex: '1 1 140px', minWidth: '130px' }}>
               <SelectDropdown
                 value={brandFilter}
                 onChange={(e) => setBrandFilter(e.target.value)}
@@ -228,7 +228,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
             </div>
 
             {/* Search Input */}
-            <div style={{ width: '220px' }}>
+            <div style={{ flex: '2 1 180px', minWidth: '160px' }}>
               <TextInput
                 placeholder="Search stock, reg no, model..."
                 value={searchQuery}
@@ -278,8 +278,8 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
       {viewMode === 'grid' ? (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '20px'
+          gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+          gap: '18px'
         }}>
           {bikes.map((bike) => {
             return (
@@ -504,8 +504,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
             </Button>
           </>
         }
-      >
-        <form style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px' }}>
+        <form className="form-grid-2">
           <FormField label="Brand" required>
             <SelectDropdown
               value={formData.brand}
@@ -690,7 +689,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
               borderRadius: 'var(--radius-sm)',
               border: '1px solid var(--border-color)',
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(110px, 1fr))',
               gap: '12px',
               textAlign: 'center'
             }}>
@@ -718,7 +717,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
             </div>
 
             {/* Vehicle Specs Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.85rem' }}>
+            <div className="form-grid-2" style={{ gap: '10px', fontSize: '0.85rem' }}>
               <div style={{ padding: '8px', backgroundColor: 'var(--bg-card)', borderRadius: 'var(--radius-xs)' }}>
                 <span style={{ color: 'var(--text-muted)' }}>Year / KM:</span> {selectedBikeDetails.year} • {Number(selectedBikeDetails.km_driven).toLocaleString('en-IN')} KM
               </div>
@@ -742,7 +741,7 @@ export const InventoryView = ({ onNavigate, onSelectBikeForInspection }) => {
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-secondary)' }}>
                   📸 4-Angle Certified Inspection Pack (Tyres & Profiles)
                 </span>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
+                <div className="mobile-photo-grid">
                   {['Front Look', 'Front Tyre ⭐', 'Back Tyre ⭐', 'Back Look'].map((label, idx) => {
                     const pic = selectedBikeDetails.photos[idx];
                     return (

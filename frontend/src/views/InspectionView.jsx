@@ -178,12 +178,7 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
       </div>
 
       {/* Main Inspection Grid */}
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: '1.8fr 1fr',
-        gap: '20px',
-        alignItems: 'start'
-      }}>
+      <div className="responsive-split-view">
         {/* Left Column: 14-Point Checklist */}
         <Card
           title="Mechanical & Safety Evaluation Checklist"
@@ -246,7 +241,7 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
               onChange={(v) => handleRatingChange('paint', v)}
             />
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginTop: '8px' }}>
+            <div className="form-grid-2" style={{ marginTop: '8px' }}>
               <FormField label="Accident History">
                 <SelectDropdown
                   value={ratings.accident_history}
@@ -443,7 +438,7 @@ export const InspectionView = ({ preselectedBike, onNavigate }) => {
             </div>
 
             {/* Bike details */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '0.85rem' }}>
+            <div className="form-grid-2" style={{ gap: '8px', fontSize: '0.85rem' }}>
               <div><strong>Vehicle:</strong> {certificateModal.bike?.brand} {certificateModal.bike?.model}</div>
               <div><strong>Reg Number:</strong> {certificateModal.bike?.reg_number}</div>
               <div><strong>Stock ID:</strong> {certificateModal.bike?.stock_id}</div>

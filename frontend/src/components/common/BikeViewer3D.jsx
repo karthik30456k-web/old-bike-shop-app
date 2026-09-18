@@ -93,15 +93,15 @@ export const BikeViewer3D = ({
       subtitle={`Interactive 360° Virtual Inspection • ${bike.year} • ${bike.mileage || '45 km/l'}`}
       maxWidth="940px"
       footer={
-        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
+          <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
             <Button
               variant={isAutoRotating ? 'primary' : 'outline'}
               size="sm"
               icon={isAutoRotating ? Pause : Play}
               onClick={() => setIsAutoRotating(!isAutoRotating)}
             >
-              {isAutoRotating ? 'Pause 360°' : 'Auto 360° Spin'}
+              {isAutoRotating ? 'Pause' : 'Auto 360°'}
             </Button>
             <Button
               variant="ghost"
@@ -116,7 +116,7 @@ export const BikeViewer3D = ({
               icon={Sparkles}
               onClick={() => setHeadlightOn(!headlightOn)}
             >
-              Lighting: {headlightOn ? 'Showroom Spotlight' : 'Off'}
+              {headlightOn ? 'Light: On' : 'Light: Off'}
             </Button>
           </div>
           <Button variant="primary" onClick={onClose}>
@@ -137,7 +137,7 @@ export const BikeViewer3D = ({
           onTouchEnd={handleMouseUp}
           style={{
             position: 'relative',
-            height: '400px',
+            height: 'min(400px, 45vh)',
             backgroundColor: 'var(--bg-app)',
             borderRadius: 'var(--radius-lg)',
             border: '1px solid var(--border-color)',

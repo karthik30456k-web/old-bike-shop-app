@@ -238,8 +238,8 @@ export const CustomerCatalogView = () => {
       {/* Bike Showcase Grid */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-        gap: '20px'
+        gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+        gap: '18px'
       }}>
         {bikes.map((bike) => {
           const isAvailable = bike.status === 'available';
@@ -299,7 +299,7 @@ export const CustomerCatalogView = () => {
                   {/* Specs Quick Strip */}
                   <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(65px, 1fr))',
                     gap: '6px',
                     margin: '12px 0',
                     padding: '8px 10px',
@@ -454,7 +454,7 @@ export const CustomerCatalogView = () => {
                     ⭐ Front & Back Tyres Inspected
                   </span>
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px' }}>
+                <div className="mobile-photo-grid">
                   {['1. Front Look', '2. Front Tyre ⭐', '3. Back Tyre ⭐', '4. Back Look'].map((label, idx) => {
                     const pic = selectedBike.photos[idx];
                     return (
@@ -493,7 +493,9 @@ export const CustomerCatalogView = () => {
               padding: '16px',
               backgroundColor: 'var(--bg-surface-elevated)',
               borderRadius: 'var(--radius-sm)',
-              border: '1px solid var(--border-color)'
+              border: '1px solid var(--border-color)',
+              flexWrap: 'wrap',
+              gap: '12px'
             }}>
               <div>
                 <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>Showroom Drive-Away Price</span>
@@ -508,7 +510,7 @@ export const CustomerCatalogView = () => {
             </div>
 
             {/* Key Specifications Grid */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '10px', fontSize: '0.85rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', fontSize: '0.85rem' }}>
               <div style={{ padding: '10px', backgroundColor: 'var(--bg-card)', borderRadius: 'var(--radius-xs)' }}>
                 <span style={{ color: 'var(--text-muted)', display: 'block' }}>KM Driven</span>
                 <strong>{Number(selectedBike.km_driven).toLocaleString('en-IN')} KM</strong>
@@ -606,7 +608,7 @@ export const CustomerCatalogView = () => {
               />
             </FormField>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div className="form-grid-2">
               <FormField label="Preferred Date" required>
                 <DateInput
                   value={trDate}

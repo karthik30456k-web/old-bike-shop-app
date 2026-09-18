@@ -152,8 +152,8 @@ export const ExpensesProfitView = () => {
       {/* Summary KPI Cards */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-        gap: '16px'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 200px), 1fr))',
+        gap: '14px'
       }}>
         <Card title="Acquisition Capital" subtitle="Base purchase cost">
           <div style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '8px' }}>
@@ -331,7 +331,7 @@ export const ExpensesProfitView = () => {
             />
           </FormField>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Expense Category" required>
               <SelectDropdown
                 value={expenseType}

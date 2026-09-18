@@ -33,7 +33,7 @@ export const Modal = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '16px',
+        padding: '12px',
         animation: 'fadeIn 0.2s ease-out'
       }}
       onClick={onClose}
@@ -44,8 +44,8 @@ export const Modal = ({
           border: '1px solid var(--border-color)',
           borderRadius: 'var(--radius-lg)',
           width: '100%',
-          maxWidth,
-          maxHeight: '90vh',
+          maxWidth: `min(96vw, ${maxWidth})`,
+          maxHeight: '92vh',
           display: 'flex',
           flexDirection: 'column',
           boxShadow: 'var(--shadow-lg)',
@@ -59,18 +59,19 @@ export const Modal = ({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '18px 24px',
+          padding: '14px 18px',
           borderBottom: '1px solid var(--border-color)',
-          backgroundColor: 'var(--bg-surface-elevated)'
+          backgroundColor: 'var(--bg-surface-elevated)',
+          gap: '12px'
         }}>
           <div>
             {title && (
-              <h2 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
+              <h2 style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--text-primary)', margin: 0 }}>
                 {title}
               </h2>
             )}
             {subtitle && (
-              <p style={{ fontSize: '0.82rem', color: 'var(--text-muted)', marginTop: '2px', margin: 0 }}>
+              <p style={{ fontSize: '0.78rem', color: 'var(--text-muted)', marginTop: '2px', margin: 0 }}>
                 {subtitle}
               </p>
             )}
@@ -84,12 +85,13 @@ export const Modal = ({
               color: 'var(--text-muted)',
               fontSize: '1.4rem',
               cursor: 'pointer',
-              padding: '4px',
+              padding: '6px',
               lineHeight: 1,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              borderRadius: 'var(--radius-sm)'
+              borderRadius: 'var(--radius-sm)',
+              flexShrink: 0
             }}
             aria-label="Close Modal"
           >
@@ -99,9 +101,10 @@ export const Modal = ({
 
         {/* Content Body */}
         <div style={{
-          padding: '24px',
+          padding: '18px 16px',
           overflowY: 'auto',
-          flex: 1
+          flex: 1,
+          WebkitOverflowScrolling: 'touch'
         }}>
           {children}
         </div>
@@ -112,8 +115,9 @@ export const Modal = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'flex-end',
-            gap: '12px',
-            padding: '16px 24px',
+            flexWrap: 'wrap',
+            gap: '8px',
+            padding: '12px 16px',
             borderTop: '1px solid var(--border-color)',
             backgroundColor: 'var(--bg-surface-elevated)'
           }}>

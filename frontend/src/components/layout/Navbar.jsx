@@ -10,11 +10,21 @@ import {
   Smartphone,
   Monitor,
   Palette,
+import {
+  ShieldCheck,
+  UserCheck,
+  Users,
+  Sun,
+  Moon,
+  Smartphone,
+  Monitor,
+  Palette,
   Bike,
-  LogOut
+  LogOut,
+  Menu
 } from 'lucide-react';
 
-export const Navbar = () => {
+export const Navbar = ({ onToggleMobileMenu }) => {
   const {
     theme,
     toggleTheme,
@@ -32,13 +42,13 @@ export const Navbar = () => {
   return (
     <header
       style={{
-        height: '68px',
+        height: '64px',
         backgroundColor: 'var(--bg-sidebar)',
         borderBottom: '1px solid var(--border-color)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '0 24px',
+        padding: '0 16px',
         position: 'sticky',
         top: 0,
         zIndex: 100,
@@ -46,55 +56,80 @@ export const Navbar = () => {
         WebkitBackdropFilter: 'blur(12px)'
       }}
     >
-      {/* Brand & Logo */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <div
+      {/* Left: Mobile Hamburger + Brand */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <button
+          type="button"
+          onClick={onToggleMobileMenu}
+          className="mobile-menu-btn"
+          title="Open Navigation Menu"
           style={{
-            width: '40px',
-            height: '40px',
+            background: 'none',
+            border: 'none',
+            color: 'var(--text-primary)',
+            cursor: 'pointer',
+            padding: '8px',
             borderRadius: 'var(--radius-sm)',
-            backgroundColor: 'var(--primary)',
-            color: '#ffffff',
-            display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
-            boxShadow: 'var(--shadow-sm)'
+            justifyContent: 'center'
           }}
+          aria-label="Open Navigation Drawer"
         >
-          <Bike size={24} />
-        </div>
-        <div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <span style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '1.2rem',
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              color: 'var(--text-primary)'
-            }}>
-              VELOCE WHEELS
-            </span>
-            <span style={{
-              fontSize: '0.68rem',
-              fontWeight: 700,
-              padding: '2px 6px',
-              borderRadius: 'var(--radius-full)',
-              backgroundColor: 'var(--primary-bg)',
-              color: 'var(--primary)',
-              border: '1px solid var(--primary-border)',
-              textTransform: 'uppercase'
-            }}>
-              ERP v2.4
+          <Menu size={22} />
+        </button>
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <div
+            style={{
+              width: '38px',
+              height: '38px',
+              borderRadius: 'var(--radius-sm)',
+              backgroundColor: 'var(--primary)',
+              color: '#ffffff',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              boxShadow: 'var(--shadow-sm)',
+              flexShrink: 0
+            }}
+          >
+            <Bike size={22} />
+          </div>
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <span style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '1.1rem',
+                fontWeight: 800,
+                letterSpacing: '-0.02em',
+                color: 'var(--text-primary)',
+                whiteSpace: 'nowrap'
+              }}>
+                VELOCE WHEELS
+              </span>
+              <span style={{
+                fontSize: '0.65rem',
+                fontWeight: 700,
+                padding: '2px 5px',
+                borderRadius: 'var(--radius-full)',
+                backgroundColor: 'var(--primary-bg)',
+                color: 'var(--primary)',
+                border: '1px solid var(--primary-border)',
+                textTransform: 'uppercase'
+              }}>
+                v2.4
+              </span>
+            </div>
+            <span className="desktop-only-nav" style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
+              Used Bike Showroom & Customer Platform
             </span>
           </div>
-          <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)' }}>
-            Used Bike Showroom & Customer Platform
-          </span>
         </div>
       </div>
 
-      {/* Role Switcher (Admin / Staff / Customer) */}
+      {/* Role Switcher (Admin / Staff / Customer) - Desktop */}
       <div
+        className="desktop-only-nav"
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -176,9 +211,9 @@ export const Navbar = () => {
       </div>
 
       {/* Utilities: Accent Palette, Dark/Light Mode, Mobile Simulation */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
         {/* Color Palette Selector */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingRight: '8px', borderRight: '1px solid var(--border-color)' }}>
+        <div className="desktop-only-nav" style={{ display: 'flex', alignItems: 'center', gap: '6px', paddingRight: '8px', borderRight: '1px solid var(--border-color)' }}>
           {paletteList.map((p) => (
             <button
               key={p.id}
@@ -203,6 +238,7 @@ export const Navbar = () => {
 
         {/* Device Mode Toggle (Desktop vs Mobile Frame) */}
         <button
+          className="desktop-only-nav"
           type="button"
           onClick={() => setDeviceMode(prev => prev === 'desktop' ? 'mobile' : 'desktop')}
           title={deviceMode === 'desktop' ? 'Preview Mobile App Layout' : 'Return to Desktop View'}
@@ -252,8 +288,8 @@ export const Navbar = () => {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
-            paddingLeft: '10px',
+            gap: '8px',
+            paddingLeft: '8px',
             borderLeft: '1px solid var(--border-color)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -268,7 +304,7 @@ export const Navbar = () => {
                   border: '1px solid var(--border-color)'
                 }}
               />
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div className="desktop-only-nav" style={{ display: 'flex', flexDirection: 'column' }}>
                 <span style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.2 }}>
                   {currentUser.name}
                 </span>
@@ -286,7 +322,7 @@ export const Navbar = () => {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '5px',
-                padding: '6px 10px',
+                padding: '6px 8px',
                 borderRadius: 'var(--radius-sm)',
                 border: '1px solid rgba(239, 68, 68, 0.3)',
                 backgroundColor: 'rgba(239, 68, 68, 0.08)',
@@ -297,7 +333,7 @@ export const Navbar = () => {
               }}
             >
               <LogOut size={13} />
-              <span>Logout</span>
+              <span className="desktop-only-nav">Logout</span>
             </button>
           </div>
         )}

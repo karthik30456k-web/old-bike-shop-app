@@ -28,6 +28,9 @@ export function App() {
     return currentRole === 'customer' ? 'catalog' : 'dashboard';
   });
 
+  // Mobile Drawer State
+  const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+
   // Cross-view state pass-throughs
   const [targetBikeForInspection, setTargetBikeForInspection] = useState(null);
   const [incomingBookingForSale, setIncomingBookingForSale] = useState(null);
@@ -62,18 +65,21 @@ export function App() {
 
   const handleNavigate = (tab) => {
     setActiveTab(tab);
+    setIsMobileDrawerOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleSelectBikeForInspection = (bike) => {
     setTargetBikeForInspection(bike);
     setActiveTab('inspection');
+    setIsMobileDrawerOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleProceedToSale = (booking) => {
     setIncomingBookingForSale(booking);
     setActiveTab('sales');
+    setIsMobileDrawerOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -127,26 +133,26 @@ export function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)' }}>
-      <Navbar />
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-app)', position: 'relative' }}>
+      <Navbar onToggleMobileMenu={() => setIsMobileDrawerOpen(prev => !prev)} />
 
       {deviceMode === 'mobile' ? (
-        /* Mobile Device Frame Mockup Simulation */
+        /* Mobile Device Frame Mockup Simulation (Max Width safe for all screens) */
         <div style={{
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          padding: '30px 16px',
+          padding: '20px 12px',
           backgroundColor: '#05070a',
           flex: 1
         }}>
           <div
             style={{
-              width: '414px',
+              width: 'min(414px, 100%)',
               height: '840px',
               backgroundColor: 'var(--bg-app)',
-              borderRadius: '44px',
-              border: '12px solid #1e293b',
+              borderRadius: '36px',
+              border: '10px solid #1e293b',
               boxShadow: '0 25px 60px rgba(0, 0, 0, 0.9), 0 0 30px var(--primary-glow)',
               display: 'flex',
               flexDirection: 'column',
@@ -156,7 +162,7 @@ export function App() {
           >
             {/* Phone Top Notch / Speaker */}
             <div style={{
-              height: '28px',
+              height: '24px',
               backgroundColor: 'var(--bg-sidebar)',
               display: 'flex',
               justifyContent: 'center',
@@ -165,10 +171,10 @@ export function App() {
               zIndex: 10
             }}>
               <div style={{
-                width: '120px',
-                height: '16px',
+                width: '100px',
+                height: '14px',
                 backgroundColor: '#1e293b',
-                borderRadius: '0 0 12px 12px'
+                borderRadius: '0 0 10px 10px'
               }} />
             </div>
 
@@ -176,28 +182,39 @@ export function App() {
             <div style={{
               flex: 1,
               overflowY: 'auto',
-              padding: '16px 14px 74px 14px'
+              padding: '16px 12px 74px 12px'
             }}>
               {renderActiveView()}
             </div>
 
             {/* Mobile Bottom Navigation */}
-            <MobileNav activeTab={activeTab} onSelectTab={handleNavigate} />
+            <MobileNav
+              activeTab={activeTab}
+              onSelectTab={handleNavigate}
+              onOpenMenu={() => setIsMobileDrawerOpen(true)}
+            />
           </div>
         </div>
       ) : (
-        /* Standard Full Web Showroom Layout */
-        <div style={{ display: 'flex', flex: 1 }}>
-          <Sidebar activeTab={activeTab} onSelectTab={handleNavigate} />
-          <main style={{
-            flex: 1,
-            padding: '28px 36px',
-            maxWidth: '1600px',
-            width: '100%',
-            overflowX: 'hidden'
-          }}>
+        /* Standard Responsive Showroom Layout (Fluid for Mobile, Tablet & Desktop) */
+        <div style={{ display: 'flex', flex: 1, position: 'relative' }}>
+          <Sidebar
+            activeTab={activeTab}
+            onSelectTab={handleNavigate}
+            isMobileDrawerOpen={isMobileDrawerOpen}
+            onCloseMobileDrawer={() => setIsMobileDrawerOpen(false)}
+          />
+
+          <main className="app-main-content">
             {renderActiveView()}
           </main>
+
+          {/* Mobile Bottom Navigation Bar (automatically shown on mobile/tablet) */}
+          <MobileNav
+            activeTab={activeTab}
+            onSelectTab={handleNavigate}
+            onOpenMenu={() => setIsMobileDrawerOpen(true)}
+          />
         </div>
       )}
     </div>

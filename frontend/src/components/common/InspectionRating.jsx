@@ -17,17 +17,18 @@ export const InspectionRating = ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
+      flexWrap: 'wrap',
       padding: '10px 14px',
       backgroundColor: 'var(--bg-surface)',
       border: '1px solid var(--border-color)',
       borderRadius: 'var(--radius-sm)',
-      gap: '12px'
+      gap: '8px'
     }}>
-      <span style={{ fontSize: '0.88rem', fontWeight: 600, color: 'var(--text-primary)' }}>
+      <span style={{ fontSize: '0.86rem', fontWeight: 600, color: 'var(--text-primary)', flex: '1 1 auto', minWidth: '140px' }}>
         {label}
       </span>
 
-      <div style={{ display: 'flex', gap: '6px' }}>
+      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
         {options.map((opt) => {
           const isSelected = value === opt.id;
           return (

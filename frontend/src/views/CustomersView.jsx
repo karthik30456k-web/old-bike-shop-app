@@ -199,7 +199,7 @@ export const CustomersView = ({ onNavigate }) => {
         }
       >
         <form style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Customer Name" required>
               <TextInput
                 placeholder="e.g. Anand Natarajan"
@@ -217,7 +217,7 @@ export const CustomersView = ({ onNavigate }) => {
             </FormField>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Email Address">
               <TextInput
                 placeholder="anand@example.com"
@@ -236,7 +236,7 @@ export const CustomersView = ({ onNavigate }) => {
             </FormField>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+          <div className="form-grid-2">
             <FormField label="Preferred Brand">
               <SelectDropdown
                 value={brand}
