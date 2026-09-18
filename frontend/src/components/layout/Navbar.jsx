@@ -10,15 +10,6 @@ import {
   Smartphone,
   Monitor,
   Palette,
-import {
-  ShieldCheck,
-  UserCheck,
-  Users,
-  Sun,
-  Moon,
-  Smartphone,
-  Monitor,
-  Palette,
   Bike,
   LogOut,
   Menu
