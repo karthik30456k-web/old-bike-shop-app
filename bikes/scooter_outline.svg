@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" width="100%" height="100%" fill="none" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Clean Technical Outline of Scooter (Suzuki Access / Activa) -->
+  <!-- Pure White Background -->
+  <rect width="100%" height="100%" fill="#ffffff" stroke="none" />
+  
+  <!-- Rear Wheel & Tyre -->
+  <circle cx="100" cy="160" r="38" stroke-width="2.5" />
+  <circle cx="100" cy="160" r="24" stroke-dasharray="4 2" stroke-width="1.5" />
+  <circle cx="100" cy="160" r="8" fill="#000000" />
+  
+  <!-- Front Wheel & Tyre -->
+  <circle cx="310" cy="160" r="38" stroke-width="2.5" />
+  <circle cx="310" cy="160" r="24" stroke-dasharray="4 2" stroke-width="1.5" />
+  <circle cx="310" cy="160" r="8" fill="#000000" />
+  
+  <!-- Front Telescopic Suspension & Mudguard -->
+  <path d="M 310,160 L 285,90" stroke-width="2.5" />
+  <path d="M 275,145 Q 310,120 335,150" stroke-width="2.2" />
+  
+  <!-- Floorboard & Chassis Underbody -->
+  <path d="M 125,160 L 175,160 L 235,160 L 255,130 L 285,90" stroke-width="2.5" />
+  <path d="M 175,160 L 175,150 L 230,150 L 235,160" stroke-width="1.8" />
+  
+  <!-- Front Apron & Headlamp Cowl -->
+  <path d="M 285,90 L 275,60 L 265,55 L 290,45 L 305,58 L 295,95 L 275,130" stroke-width="2.5" />
+  <!-- Handlebars & Mirrors -->
+  <path d="M 265,55 L 255,50" stroke-width="2.5" />
+  <circle cx="250" cy="46" r="6" />
+  <path d="M 275,55 L 285,42" stroke-width="2" />
+  <circle cx="288" cy="38" r="6" />
+  <!-- Headlight beam detail -->
+  <path d="M 292,58 L 302,64" stroke-width="2" />
+  
+  <!-- Seat & Rear Bodywork (Tail Cowl) -->
+  <path d="M 140,95 Q 190,88 230,95 L 245,120 L 180,120 Z" stroke-width="2.2" />
+  <path d="M 140,95 Q 90,105 70,130 L 125,160" stroke-width="2.5" />
+  <!-- Rear Grab Rail -->
+  <path d="M 85,110 L 60,110 L 60,120" stroke-width="2" />
+  <!-- Exhaust Muffler -->
+  <rect x="90" y="148" width="55" height="14" rx="5" stroke-width="2" />
+  <path d="M 145,155 L 160,155" stroke-width="2.5" />
+  
+  <!-- Center Stand / Kick Indicator -->
+  <path d="M 155,160 L 148,185" stroke-width="2.5" />
+  
+  <!-- Subtle Technical Watermark text -->
+  <text x="385" y="210" font-family="monospace" font-size="8" fill="#444444" text-anchor="end" stroke="none">SCOOTER LINE ART • AUTHENTIC BLUEPRINT</text>
+</svg>
